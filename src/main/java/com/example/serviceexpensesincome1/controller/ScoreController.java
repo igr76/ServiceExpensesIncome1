@@ -1,6 +1,6 @@
 package com.example.serviceexpensesincome1.controller;
 
-import com.example.serviceexpensesincome.dto.ScoreDTO;
+import com.example.serviceexpensesincome1.dto.ScoreDTO;
 import com.example.serviceexpensesincome1.service.ScoreService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

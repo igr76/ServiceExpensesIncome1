@@ -1,7 +1,7 @@
 package com.example.serviceexpensesincome1.controller;
 
-import com.example.serviceexpensesincome.dto.NewPassword;
-import com.example.serviceexpensesincome.dto.UserDTO;
+import com.example.serviceexpensesincome1.dto.NewPassword;
+import com.example.serviceexpensesincome1.dto.UserDTO;
 import com.example.serviceexpensesincome1.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -100,14 +100,10 @@ public class UserController {
   @Operation(summary = "Обновить пользователя")
   @ApiResponses({
       @ApiResponse(
-          responseCode = "200",
-          description = "OK",
-          content = @Content(
+          responseCode = "200", description = "OK", content = @Content(
               array = @ArraySchema(schema = @Schema(implementation = UserDTO.class)))
       ),
-      @ApiResponse(
-          responseCode = "204",
-          description = "No Content",
+      @ApiResponse(responseCode = "204", description = "No Content",
           content = @Content(schema = @Schema())
       ),
       @ApiResponse(

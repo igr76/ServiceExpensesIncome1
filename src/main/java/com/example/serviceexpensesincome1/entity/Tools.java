@@ -1,7 +1,7 @@
 package com.example.serviceexpensesincome1.entity;
 
-import com.example.serviceexpensesincome.dto.Type;
-import com.example.serviceexpensesincome.dto.Unit;
+import com.example.serviceexpensesincome1.dto.Type;
+import com.example.serviceexpensesincome1.dto.Unit;
 
 import java.util.Date;
 /** Cущность основые средства */

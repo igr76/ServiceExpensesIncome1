@@ -1,7 +1,17 @@
-package com.example.serviceexpensesincome.dto;
+package com.example.serviceexpensesincome1.dto;
+
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import java.util.Date;
-
+/** ВЕЩ основые средства */
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class ToolsDTO {
     /** ID tool */
     int Id;

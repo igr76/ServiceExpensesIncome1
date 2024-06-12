@@ -1,4 +1,4 @@
-package com.example.serviceexpensesincome.dto;
+package com.example.serviceexpensesincome1.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;

@@ -1,6 +1,6 @@
 package com.example.serviceexpensesincome1.entity;
 
-import com.example.serviceexpensesincome.dto.Type;
+import com.example.serviceexpensesincome1.dto.Type;
 
 import java.util.Date;
 /** Cущность распределения счетов */

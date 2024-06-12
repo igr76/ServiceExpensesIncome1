@@ -1,7 +1,18 @@
 package com.example.serviceexpensesincome1.dto;
 
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+
 import java.util.Date;
+
 /**  история  распределения счетов */
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class DistributionHistoryDTO {
     /** Компания */
     String company;
@@ -28,7 +39,7 @@ public class DistributionHistoryDTO {
     /** ID основного средства */
     int Id;
     /** Класс основного средства */
-    com.example.serviceexpensesincome.dto.Type type;
+    Type type;
     /** Признак Использования */
     boolean signExpenses;
     /** Распределенная сумма */

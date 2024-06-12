@@ -1,6 +1,6 @@
 package com.example.serviceexpensesincome1.entity;
 
-import com.example.serviceexpensesincome.dto.Unit;
+import com.example.serviceexpensesincome1.dto.Unit;
 
 import java.util.Date;
 /** Cущность здание */
