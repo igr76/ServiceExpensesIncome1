@@ -1,4 +1,4 @@
-package com.example.serviceexpensesincome.entity;
+package com.example.serviceexpensesincome1.entity;
 
 import com.example.serviceexpensesincome.dto.Unit;
 

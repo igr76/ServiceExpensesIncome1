@@ -1,4 +1,4 @@
-package com.example.serviceexpensesincome.service;
+package com.example.serviceexpensesincome1.service;
 
 import com.example.serviceexpensesincome.dto.NewPassword;
 import com.example.serviceexpensesincome.dto.UserDTO;

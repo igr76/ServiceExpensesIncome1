@@ -1,8 +1,8 @@
-package com.example.serviceexpensesincome.controller;
+package com.example.serviceexpensesincome1.controller;
 
 import com.example.serviceexpensesincome.dto.NewPassword;
 import com.example.serviceexpensesincome.dto.UserDTO;
-import com.example.serviceexpensesincome.service.UserService;
+import com.example.serviceexpensesincome1.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;

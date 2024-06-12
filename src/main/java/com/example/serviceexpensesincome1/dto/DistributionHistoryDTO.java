@@ -1,11 +1,8 @@
-package com.example.serviceexpensesincome1.entity;
-
-import com.example.serviceexpensesincome.dto.Type;
+package com.example.serviceexpensesincome1.dto;
 
 import java.util.Date;
-/** Cущность распределения счетов */
-
-public class Distribution {
+/**  история  распределения счетов */
+public class DistributionHistoryDTO {
     /** Компания */
     String company;
     /** Номер счета */
@@ -31,11 +28,13 @@ public class Distribution {
     /** ID основного средства */
     int Id;
     /** Класс основного средства */
-    Type type;
+    com.example.serviceexpensesincome.dto.Type type;
     /** Признак Использования */
     boolean signExpenses;
     /** Распределенная сумма */
     int sizeDistribution;
     /** Счёт главной книги */
     int Score;
+    /** Дата регистрации */
+    Date DateRegistration;
 }

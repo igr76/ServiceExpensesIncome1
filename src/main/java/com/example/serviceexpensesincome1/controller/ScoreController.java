@@ -1,7 +1,7 @@
-package com.example.serviceexpensesincome.controller;
+package com.example.serviceexpensesincome1.controller;
 
 import com.example.serviceexpensesincome.dto.ScoreDTO;
-import com.example.serviceexpensesincome.service.ScoreService;
+import com.example.serviceexpensesincome1.service.ScoreService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -15,9 +15,11 @@ import lombok.NonNull;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /** Контроллер  счетов */
 public class ScoreController {
-    private  ScoreService scoreService;
+    private ScoreService scoreService;
     @Operation(summary = "Получить все cчета")
     @ApiResponses({
             @ApiResponse(
@@ -30,7 +32,7 @@ public class ScoreController {
             )
     })
     @GetMapping
-    public ResponseEntity<ScoreDTO> getScoreAll() {
+    public ResponseEntity<List<ScoreDTO>> getScoreAll() {
         return ResponseEntity.ok(scoreService.getScoreAll());
     }
     @Operation(summary = "Обновить счет")

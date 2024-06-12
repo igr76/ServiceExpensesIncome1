@@ -1,4 +1,4 @@
-package com.example.serviceexpensesincome.entity;
+package com.example.serviceexpensesincome1.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;

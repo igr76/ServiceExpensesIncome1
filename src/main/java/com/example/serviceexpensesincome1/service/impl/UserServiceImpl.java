@@ -3,10 +3,10 @@ package com.example.serviceexpensesincome.service.impl;
 
 import com.example.serviceexpensesincome.dto.NewPassword;
 import com.example.serviceexpensesincome.dto.UserDTO;
-import com.example.serviceexpensesincome.entity.UserEntity;
 import com.example.serviceexpensesincome.mapper.UserMapper;
 import com.example.serviceexpensesincome.repository.UserRepository;
-import com.example.serviceexpensesincome.service.UserService;
+import com.example.serviceexpensesincome1.entity.UserEntity;
+import com.example.serviceexpensesincome1.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Value;
