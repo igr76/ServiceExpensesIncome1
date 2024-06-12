@@ -1,11 +1,12 @@
-package com.example.serviceexpensesincome.entity;
+package com.example.serviceexpensesincome1.entity;
 
-import com.example.serviceexpensesincome.dto.Type;
+import com.example.serviceexpensesincome1.dto.Type;
 
 import java.util.Date;
 /** Cущность распределения счетов */
 
 public class Distribution {
+    /** Компания */
     String company;
     /** Номер счета */
     int idScore;
@@ -19,7 +20,7 @@ public class Distribution {
     Date dateAccount;
     /** id договора */
     int idContract;
-    /** ID услуги */
+    /** id услуги */
     int idService;
     /** Класс услуги*/
     String classService;

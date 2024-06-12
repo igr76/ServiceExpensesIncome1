@@ -1,4 +1,4 @@
-package com.example.serviceexpensesincome.controller;
+package com.example.serviceexpensesincome1.controller;
 /** Контроллер прогнозирования расходов */
 public class ForecastingController {
 }

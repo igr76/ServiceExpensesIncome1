@@ -1,9 +1,11 @@
-package com.example.serviceexpensesincome.service;
+package com.example.serviceexpensesincome1.service;
 
 import com.example.serviceexpensesincome.dto.ScoreDTO;
 
+import java.util.List;
+
 public interface ScoreService {
-    ScoreDTO getScoreAll();
+    List<ScoreDTO> getScoreAll();
 
     void removeScore(int id);
 

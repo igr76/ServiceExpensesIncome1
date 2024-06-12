@@ -1,8 +1,8 @@
-package com.example.serviceexpensesincome.mapper;
+package com.example.serviceexpensesincome1.mapper;
 
 
 /**
- * маппер для {@link com.example.serviceexpensesincome.entity.UserEntity} готовый dto {@link com.example.serviceexpensesincome.dto.UserDTO}
+ * маппер для {@link com.example.serviceexpensesincome1.entity.UserEntity} готовый dto {@link com.example.serviceexpensesincome1.dto.UserDTO}
  */
 
 //@Mapper(componentModel = "spring")

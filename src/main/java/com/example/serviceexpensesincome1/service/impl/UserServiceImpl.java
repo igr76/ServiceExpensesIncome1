@@ -1,36 +1,30 @@
-package com.example.serviceexpensesincome.service.impl;
+package com.example.serviceexpensesincome1.service.impl;
 
 
-import com.example.serviceexpensesincome.dto.NewPassword;
-import com.example.serviceexpensesincome.dto.UserDTO;
-import com.example.serviceexpensesincome.entity.UserEntity;
-import com.example.serviceexpensesincome.mapper.UserMapper;
-import com.example.serviceexpensesincome.repository.UserRepository;
-import com.example.serviceexpensesincome.service.UserService;
+import com.example.serviceexpensesincome1.dto.NewPassword;
+import com.example.serviceexpensesincome1.dto.UserDTO;
+import com.example.serviceexpensesincome1.entity.UserEntity;
+import com.example.serviceexpensesincome1.exeption.ElemNotFound;
+import com.example.serviceexpensesincome1.mapper.UserMapper;
+import com.example.serviceexpensesincome1.repository.UserRepository;
+import com.example.serviceexpensesincome1.service.UserService;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
-
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Objects;
-
-import static java.nio.file.StandardOpenOption.CREATE_NEW;
 
 /**
  * Сервис пользователей
  */
+@AllArgsConstructor
+@NoArgsConstructor
 @Service
 @Slf4j
 public class UserServiceImpl implements UserService {
 
-  private final UserRepository userRepository;
-  private final UserMapper userMapper;
+  private  UserRepository userRepository;
+  private  UserMapper userMapper;
 
   @Value("${image.user.dir.path}")
   private String userPhotoDir;
@@ -46,7 +40,7 @@ public class UserServiceImpl implements UserService {
   @Override
   public UserDTO getUser(Authentication authentication) {
     log.info("FormLogInfo.getInfo()");
-    String nameEmail = authentication.getName();
+     String nameEmail = "";//authentication.getName();
     UserEntity userEntity = findEntityByEmail(nameEmail);
     return userMapper.toDTO(userEntity);
   }
@@ -58,11 +52,11 @@ public class UserServiceImpl implements UserService {
   public UserDTO updateUser(UserDTO newUserDto, Authentication authentication) {
     log.info("FormLogInfo.getInfo()");
 
-    String nameEmail = authentication.getName();
+    String nameEmail = "";//authentication.getName();
     UserEntity userEntity = findEntityByEmail(nameEmail);
     int id = userEntity.getId();
 
-    UserEntity oldUser = findById(id);
+    UserEntity oldUser = userRepository.findById(id);
 
     oldUser.setEmail(userEntity.getEmail());
     oldUser.setFirstName(newUserDto.getFirstName());
@@ -90,88 +84,13 @@ public class UserServiceImpl implements UserService {
   }
 
   /**
-   * загрузить аватарку пользователя
-   */
-  @Override
-  public void updateUserImage(MultipartFile image, Authentication authentication) {
-    log.info("FormLogInfo.getInfo()");
-
-    String nameEmail = authentication.getName();
-    UserEntity userEntity = findEntityByEmail(nameEmail);
-    String linkToGetImage = "/users" + "/" + userEntity.getId();
-    Path filePath = Path.of(userPhotoDir,
-        Objects.requireNonNull(String.valueOf(userEntity.getId())));
-
-    if(userEntity.getImage() != null){
-      try {
-        Files.deleteIfExists(filePath);
-        userEntity.setImage(null);
-      } catch (IOException e) {
-        throw new RuntimeException(e);
-      }
-
-    }
-
-
-    try {
-      Files.createDirectories(filePath.getParent());
-      Files.deleteIfExists(filePath);
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
-
-    try (InputStream is = image.getInputStream();
-        OutputStream os = Files.newOutputStream(filePath, CREATE_NEW);
-        BufferedInputStream bis = new BufferedInputStream(is, 1024);
-        BufferedOutputStream bos = new BufferedOutputStream(os, 1024)) {
-
-      bis.transferTo(bos);
-
-      userEntity.setImage(linkToGetImage);
-      userRepository.save(userEntity);
-
-    } catch (Exception e) {
-      log.info("Ошибка сохранения файла");
-    }
-
-  }
-
-  /**
-   * получить фото пользователя
-   *
-   * @return фото конвертированная в массив байтов
-   */
-  public byte[] getPhotoById(Integer id) {
-    String linkToGetImage = "user_photo_dir/" + id;
-    byte[] bytes;
-    try {
-      bytes = Files.readAllBytes(Paths.get(linkToGetImage));
-    } catch (IOException e) {
-      log.info(FormLogInfo.getCatch());
-      throw new RuntimeException(e);
-    }
-    return bytes;
-  }
-
-  /**
-   * найти пользователя по id
-   *
-   * @param id id пользователя
-   * @return пользователь
-   */
-  private UserEntity findById(int id) {
-    log.info(FormLogInfo.getInfo());
-    return userRepository.findById(id).orElseThrow(ElemNotFound::new);
-  }
-
-  /**
    * найти пользователя по email - логину
    *
    * @param email email - логину пользователя
    * @return пользователь
    */
   private UserEntity findEntityByEmail(String email) {
-    log.info(FormLogInfo.getInfo());
+    log.info("FormLogInfo.getInfo()");
     return userRepository.findByEmail(email).get();
   }
 

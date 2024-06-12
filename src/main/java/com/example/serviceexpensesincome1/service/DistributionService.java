@@ -1,9 +1,12 @@
-package com.example.serviceexpensesincome.service;
+package com.example.serviceexpensesincome1.service;
 
 import com.example.serviceexpensesincome.dto.ContractDTO;
 import com.example.serviceexpensesincome.dto.DistributionDTO;
 import com.example.serviceexpensesincome.dto.ServiceDTO;
 import com.example.serviceexpensesincome.dto.ToolsDTO;
+import com.example.serviceexpensesincome1.dto.DistributionHistoryDTO;
+
+import java.util.List;
 
 public interface DistributionService {
     DistributionDTO getDistributionId(int id);
@@ -29,4 +32,6 @@ public interface DistributionService {
     Object updateContract(Integer id, ContractDTO contractDTO);
 
     void removeContract(int id);
+
+    List<DistributionHistoryDTO> getHistory();
 }

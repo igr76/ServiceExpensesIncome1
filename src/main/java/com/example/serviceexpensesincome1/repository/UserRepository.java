@@ -1,4 +1,12 @@
-package com.example.serviceexpensesincome.repository;
+package com.example.serviceexpensesincome1.repository;
+
+import com.example.serviceexpensesincome1.entity.UserEntity;
+import org.springframework.beans.MutablePropertyValues;
+
+import java.util.Optional;
 
 public interface UserRepository {
+    MutablePropertyValues findByEmail(String email);
+
+    UserEntity findById(int id);
 }

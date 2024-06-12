@@ -1,4 +1,4 @@
-package com.example.serviceexpensesincome.entity;
+package com.example.serviceexpensesincome1.entity;
 
 import java.util.Date;
 /** Связь договора и здание */

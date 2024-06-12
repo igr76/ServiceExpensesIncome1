@@ -1,8 +1,8 @@
-package com.example.serviceexpensesincome.entity;
+package com.example.serviceexpensesincome1.entity;
 /** Cущность договоров */
 public class Contract {
-    /** Номер счета */
+    /** Номер договоров */
     int idScore;
-    /** Позиция счета */
+    /** Позиция договоров */
     int idBuilding;
 }

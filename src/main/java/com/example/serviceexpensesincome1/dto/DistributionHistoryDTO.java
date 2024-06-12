@@ -4,7 +4,8 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.util.Date;
-/** DTO распределения счетов */
+
+/**  история  распределения счетов */
 @Getter
 @Setter
 @ToString
@@ -12,7 +13,8 @@ import java.util.Date;
 @AllArgsConstructor
 @EqualsAndHashCode
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class DistributionDTO {
+public class DistributionHistoryDTO {
+    /** Компания */
     String company;
     /** Номер счета */
     int idScore;
@@ -26,7 +28,7 @@ public class DistributionDTO {
     Date dateAccount;
     /** id договора */
     int idContract;
-    /** ID услуги */
+    /** id услуги */
     int idService;
     /** Класс услуги*/
     String classService;
@@ -44,4 +46,6 @@ public class DistributionDTO {
     int sizeDistribution;
     /** Счёт главной книги */
     int Score;
+    /** Дата регистрации */
+    Date DateRegistration;
 }

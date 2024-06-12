@@ -1,18 +1,9 @@
-package com.example.serviceexpensesincome1.dto;
-
-import lombok.*;
-import lombok.experimental.FieldDefaults;
+package com.example.serviceexpensesincome1.entity;
 
 import java.util.Date;
-/** DTO распределения счетов */
-@Getter
-@Setter
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class DistributionDTO {
+/** Cущность история  распределения счетов */
+public class DistributionHistory {
+    /** Компания */
     String company;
     /** Номер счета */
     int idScore;
@@ -26,7 +17,7 @@ public class DistributionDTO {
     Date dateAccount;
     /** id договора */
     int idContract;
-    /** ID услуги */
+    /** id услуги */
     int idService;
     /** Класс услуги*/
     String classService;
@@ -37,11 +28,13 @@ public class DistributionDTO {
     /** ID основного средства */
     int Id;
     /** Класс основного средства */
-    Type type;
+    com.example.serviceexpensesincome.dto.Type type;
     /** Признак Использования */
     boolean signExpenses;
     /** Распределенная сумма */
     int sizeDistribution;
     /** Счёт главной книги */
     int Score;
+    /** Дата регистрации */
+    Date DateRegistration;
 }
