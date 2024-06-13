@@ -1,7 +1,7 @@
 package com.example.serviceexpensesincome1.controller;
 
 
-import com.example.serviceexpensesincome1.dto.DistributionHistoryDTO;
+import com.example.serviceexpensesincome1.dto.*;
 import com.example.serviceexpensesincome1.service.DistributionService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -37,10 +37,10 @@ public class DistributionController {
    @Operation(summary = "Получить здание")
    @ApiResponses({
            @ApiResponse(responseCode = "200", description = "OK", content = {
-                           @Content(array = @ArraySchema(schema = @Schema(implementation = com.example.serviceexpensesincome.dto.ScoreDTO.class)))})
+                           @Content(array = @ArraySchema(schema = @Schema(implementation = ScoreDTO.class)))})
    })
    @GetMapping("{id}")
-   public ResponseEntity<com.example.serviceexpensesincome.dto.DistributionDTO> getDistributionId(@PathVariable(name = "id")
+   public ResponseEntity<DistributionDTO> getDistributionId(@PathVariable(name = "id")
                                                   @NotBlank(message = "id не должен быть пустым")
                                                   @Min(value = 1, message = "Идентификатор должен быть больше 0")
                                                   @Parameter(description = "Идентификатор объявления",
@@ -57,7 +57,7 @@ public class DistributionController {
    @PatchMapping("{id}")
    public ResponseEntity<?> updateDistribution(
            @PathVariable(name = "id") @NonNull @Parameter(description = "Больше 0, Например 1") Integer id,
-           @RequestBody com.example.serviceexpensesincome.dto.DistributionDTO distributionDTO) {
+           @RequestBody DistributionDTO distributionDTO) {
 
       return ResponseEntity.ok().body(distributionService.updateDistribution(id, distributionDTO));
    }
@@ -79,10 +79,10 @@ public class DistributionController {
    @Operation(summary = "Получить основных средств")
    @ApiResponses({
            @ApiResponse(responseCode = "200", description = "OK", content = {
-                   @Content(array = @ArraySchema(schema = @Schema(implementation = com.example.serviceexpensesincome.dto.ScoreDTO.class)))})
+                   @Content(array = @ArraySchema(schema = @Schema(implementation =ScoreDTO.class)))})
    })
    @GetMapping("tools/{id}")
-   public ResponseEntity<com.example.serviceexpensesincome.dto.ToolsDTO> getTools(@PathVariable(name = "id")
+   public ResponseEntity<ToolsDTO> getTools(@PathVariable(name = "id")
                                                             @NotBlank(message = "id не должен быть пустым")
                                                             @Min(value = 1, message = "Идентификатор должен быть больше 0")
                                                             @Parameter(description = "Идентификатор объявления",
@@ -99,7 +99,7 @@ public class DistributionController {
     @PatchMapping("tools/{id}")
     public ResponseEntity<?> updateTools(
             @PathVariable(name = "id") @NonNull @Parameter(description = "Больше 0, Например 1") Integer id,
-            @RequestBody com.example.serviceexpensesincome.dto.ToolsDTO toolsDTO) {
+            @RequestBody ToolsDTO toolsDTO) {
 
         return ResponseEntity.ok().body(distributionService.updateTools(id, toolsDTO));
     }
@@ -121,10 +121,10 @@ public class DistributionController {
     @Operation(summary = "Получить услугу")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "OK", content = {
-                    @Content(array = @ArraySchema(schema = @Schema(implementation = com.example.serviceexpensesincome.dto.ScoreDTO.class)))})
+                    @Content(array = @ArraySchema(schema = @Schema(implementation = ScoreDTO.class)))})
     })
     @GetMapping("service/{id}")
-    public ResponseEntity<com.example.serviceexpensesincome.dto.ServiceDTO> getService(@PathVariable(name = "id")
+    public ResponseEntity<ServiceDTO> getService(@PathVariable(name = "id")
                                              @NotBlank(message = "id не должен быть пустым")
                                              @Min(value = 1, message = "Идентификатор должен быть больше 0")
                                              @Parameter(description = "Идентификатор объявления",
@@ -141,7 +141,7 @@ public class DistributionController {
     @PatchMapping("service/{id}")
     public ResponseEntity<?> updateService(
             @PathVariable(name = "id") @NonNull @Parameter(description = "Больше 0, Например 1") Integer id,
-            @RequestBody com.example.serviceexpensesincome.dto.ServiceDTO serviceDTO) {
+            @RequestBody ServiceDTO serviceDTO) {
 
         return ResponseEntity.ok().body(distributionService.updateService(id, serviceDTO));
     }
@@ -163,10 +163,10 @@ public class DistributionController {
     @Operation(summary = "Получить договор")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "OK", content = {
-                    @Content(array = @ArraySchema(schema = @Schema(implementation = com.example.serviceexpensesincome.dto.ScoreDTO.class)))})
+                    @Content(array = @ArraySchema(schema = @Schema(implementation = ScoreDTO.class)))})
     })
     @GetMapping("contract/{id}")
-    public ResponseEntity<com.example.serviceexpensesincome.dto.ContractDTO> getContract(@PathVariable(name = "id")
+    public ResponseEntity<ContractDTO> getContract(@PathVariable(name = "id")
                                                  @NotBlank(message = "id не должен быть пустым")
                                                  @Min(value = 1, message = "Идентификатор должен быть больше 0")
                                                  @Parameter(description = "Идентификатор объявления",
@@ -183,7 +183,7 @@ public class DistributionController {
     @PatchMapping("contract/{id}")
     public ResponseEntity<?> updateContract(
             @PathVariable(name = "id") @NonNull @Parameter(description = "Больше 0, Например 1") Integer id,
-            @RequestBody com.example.serviceexpensesincome.dto.ContractDTO contractDTO) {
+            @RequestBody ContractDTO contractDTO) {
 
         return ResponseEntity.ok().body(distributionService.updateContract(id, contractDTO));
     }
@@ -206,7 +206,7 @@ public class DistributionController {
     @Operation(summary = "Получить истории распределения расходов")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "OK", content = {
-                    @Content(array = @ArraySchema(schema = @Schema(implementation = com.example.serviceexpensesincome.dto.ScoreDTO.class)))})
+                    @Content(array = @ArraySchema(schema = @Schema(implementation = ScoreDTO.class)))})
     })
     @GetMapping("history/")
     public ResponseEntity<List<DistributionHistoryDTO>> getHistory(@PathVariable(name = "id")

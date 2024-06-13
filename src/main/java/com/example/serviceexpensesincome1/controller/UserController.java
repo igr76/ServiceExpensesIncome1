@@ -91,10 +91,11 @@ public class UserController {
           content = @Content(schema = @Schema())
       )
   })
-  @GetMapping(value = "/me")
-  public ResponseEntity<UserDTO> getUser(Authentication authentication) {
+  @GetMapping(value = "/{email}")
+  public ResponseEntity<UserDTO> getUser(@PathVariable(name = "id")
+                                           @NotBlank(message = "id не должен быть пустым")String email) {
     log.info("FormLogInfo.getInfo()");
-    return ResponseEntity.ok(userService.getUser(authentication));
+    return ResponseEntity.ok(userService.getUser(email));
   }
 
   @Operation(summary = "Обновить пользователя")
@@ -122,12 +123,12 @@ public class UserController {
           content = @Content(schema = @Schema())
       )
   })
-  @PatchMapping(value = "/me")
+  @PatchMapping
   public ResponseEntity<UserDTO> updateUser(
           @RequestBody
-      @NotBlank(message = "updateUser не должен быть пустым") UserDTO userDto, Authentication authentication) {
+      @NotBlank(message = "updateUser не должен быть пустым") UserDTO userDto) {
     log.info("");
-    return ResponseEntity.ok(userService.updateUser(userDto, authentication));
+    return ResponseEntity.ok(userService.updateUser(userDto));
   }
 
 

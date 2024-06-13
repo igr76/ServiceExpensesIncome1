@@ -1,10 +1,7 @@
 package com.example.serviceexpensesincome1.service;
 
-import com.example.serviceexpensesincome.dto.ContractDTO;
-import com.example.serviceexpensesincome.dto.DistributionDTO;
-import com.example.serviceexpensesincome.dto.ServiceDTO;
-import com.example.serviceexpensesincome.dto.ToolsDTO;
-import com.example.serviceexpensesincome1.dto.DistributionHistoryDTO;
+
+import com.example.serviceexpensesincome1.dto.*;
 
 import java.util.List;
 

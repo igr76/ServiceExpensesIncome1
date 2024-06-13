@@ -1,6 +1,6 @@
 package com.example.serviceexpensesincome1.service;
 
-import com.example.serviceexpensesincome.dto.ScoreDTO;
+import com.example.serviceexpensesincome1.dto.ScoreDTO;
 
 import java.util.List;
 

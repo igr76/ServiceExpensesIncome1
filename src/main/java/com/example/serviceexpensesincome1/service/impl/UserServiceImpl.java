@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 /**
  * Сервис пользователей
  */
-@AllArgsConstructor
 @NoArgsConstructor
 @Service
 @Slf4j
@@ -26,8 +25,6 @@ public class UserServiceImpl implements UserService {
   private  UserRepository userRepository;
   private  UserMapper userMapper;
 
-  @Value("${image.user.dir.path}")
-  private String userPhotoDir;
 
   public UserServiceImpl(UserRepository userRepository, UserMapper userMapper) {
     this.userRepository = userRepository;
@@ -38,10 +35,9 @@ public class UserServiceImpl implements UserService {
    * Получить данные пользователя
    */
   @Override
-  public UserDTO getUser(Authentication authentication) {
-    log.info("FormLogInfo.getInfo()");
-     String nameEmail = "";//authentication.getName();
-    UserEntity userEntity = findEntityByEmail(nameEmail);
+  public UserDTO getUser(String email) {
+    log.info("Получить данные пользователя");
+    UserEntity userEntity = findEntityByEmail(email);
     return userMapper.toDTO(userEntity);
   }
 
@@ -49,7 +45,7 @@ public class UserServiceImpl implements UserService {
    * Обновить данные пользователя
    */
   @Override
-  public UserDTO updateUser(UserDTO newUserDto, Authentication authentication) {
+  public UserDTO updateUser(UserDTO newUserDto) {
     log.info("FormLogInfo.getInfo()");
 
     String nameEmail = "";//authentication.getName();
@@ -91,7 +87,7 @@ public class UserServiceImpl implements UserService {
    */
   private UserEntity findEntityByEmail(String email) {
     log.info("FormLogInfo.getInfo()");
-    return userRepository.findByEmail(email).get();
+    return userRepository.findByEmail(email);//.get();
   }
 
 

@@ -14,12 +14,12 @@ public interface UserService {
   /**
    * получить пользователя
    */
-  UserDTO getUser(Authentication authentication);
+  UserDTO getUser(String email);
 
   /**
    * обновить пользователя
    */
-  UserDTO updateUser(UserDTO userDto, Authentication authentication) ;
+  UserDTO updateUser(UserDTO userDto) ;
 
   /**
    * установить новый пароль пользователя

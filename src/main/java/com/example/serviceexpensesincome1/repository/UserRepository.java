@@ -6,7 +6,10 @@ import org.springframework.beans.MutablePropertyValues;
 import java.util.Optional;
 
 public interface UserRepository {
-    MutablePropertyValues findByEmail(String email);
+    UserEntity findByEmail(String email);
 
     UserEntity findById(int id);
+
+    void save(UserEntity oldUser);
+
 }

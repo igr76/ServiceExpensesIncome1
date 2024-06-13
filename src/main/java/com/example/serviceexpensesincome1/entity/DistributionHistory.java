@@ -1,5 +1,7 @@
 package com.example.serviceexpensesincome1.entity;
 
+import com.example.serviceexpensesincome1.dto.Type;
+
 import java.util.Date;
 /** Cущность история  распределения счетов */
 public class DistributionHistory {
@@ -28,7 +30,7 @@ public class DistributionHistory {
     /** ID основного средства */
     int Id;
     /** Класс основного средства */
-    com.example.serviceexpensesincome.dto.Type type;
+    Type type;
     /** Признак Использования */
     boolean signExpenses;
     /** Распределенная сумма */

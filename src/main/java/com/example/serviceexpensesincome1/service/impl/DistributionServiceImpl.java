@@ -1,9 +1,9 @@
 package com.example.serviceexpensesincome1.service.impl;
 
-import com.example.serviceexpensesincome.dto.ContractDTO;
-import com.example.serviceexpensesincome.dto.DistributionDTO;
-import com.example.serviceexpensesincome.dto.ServiceDTO;
-import com.example.serviceexpensesincome.dto.ToolsDTO;
+import com.example.serviceexpensesincome1.dto.ContractDTO;
+import com.example.serviceexpensesincome1.dto.DistributionDTO;
+import com.example.serviceexpensesincome1.dto.ServiceDTO;
+import com.example.serviceexpensesincome1.dto.ToolsDTO;
 import com.example.serviceexpensesincome1.dto.DistributionHistoryDTO;
 import com.example.serviceexpensesincome1.service.DistributionService;
 
