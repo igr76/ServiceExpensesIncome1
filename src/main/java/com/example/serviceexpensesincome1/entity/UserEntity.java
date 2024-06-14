@@ -55,10 +55,6 @@ public class UserEntity {
    */
   String phone;
 
-  /**
-   * дата регистрации пользователя
-   */
-  LocalDateTime regDate;
 
 
 

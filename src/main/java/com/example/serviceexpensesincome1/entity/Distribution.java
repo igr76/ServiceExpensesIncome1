@@ -38,11 +38,11 @@ public class Distribution {
     /** Класс услуги*/
     String classService;
     /** Здание */
-    String Building;
+    String building;
     /** Площадь */
     int square;
     /** ID основного средства */
-    int IdO;
+    int idO;
     /** Класс основного средства */
     Type type;
     /** Признак Использования */

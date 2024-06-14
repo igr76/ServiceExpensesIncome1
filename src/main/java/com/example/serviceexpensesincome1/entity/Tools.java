@@ -42,5 +42,5 @@ public class Tools {
     int square;
 
     /** Единица измерения площади */
-    Unit UnitOfArea;
+    Unit unitOfArea;
 }

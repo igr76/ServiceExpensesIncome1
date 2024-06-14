@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="create-distribution-table" author="igor">
+
+        <preConditions>
+            <not>
+                <tableExists tableName="distribution"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="distribution">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="id_score" type="INT" >
+                <constraints  nullable="false"/>
+            </column>
+            <column name="id_building" type="INT" >
+                <constraints  nullable="false"/>
+            </column>
+            <column name="account_year" type="DATE">
+                <constraints  nullable="false"/>
+            </column>
+            <column name="number_position" type="INT" >
+                <constraints  nullable="false"/>
+            </column>
+            <column name="date_account" type="DATE">
+                <constraints  nullable="false"/>
+            </column>
+            <column name="id_contract" type="INT" >
+                <constraints  nullable="false"/>
+            </column>
+            <column name="id_service" type="INT" >
+                <constraints  nullable="false"/>
+            </column>
+            <column name="class_service" type="VARCHAR(16)">
+                <constraints  nullable="false"/>
+            </column>
+            <column name="building" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="square" type="INT" >
+                <constraints  nullable="false"/>
+            </column>
+            <column name="id_o" type="INT" >
+                <constraints  nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sign_expenses" type="BOOLEAN">
+            </column>
+            <column name="size_distribution" type="INT" >
+                <constraints  nullable="false"/>
+            </column>
+            <column name="score" type="INT" >
+                <constraints  nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>

@@ -17,7 +17,7 @@ public class Union {
     /** ID договора */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int IdContract;
+    int Id;
     /** ID здания */
     int idBuilding;
     /** Дата начала действия связи */

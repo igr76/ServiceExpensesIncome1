@@ -16,7 +16,7 @@ public class Contract {
     /** Номер договоров */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int idScore;
+    int id;
     /** Позиция договоров */
     int idBuilding;
 }

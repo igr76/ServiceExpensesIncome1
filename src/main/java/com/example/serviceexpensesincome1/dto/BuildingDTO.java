@@ -16,15 +16,15 @@ public class BuildingDTO {
     /** ID здания */
     int Id;
     /** Начало владения */
-    Date beginningOfOwnership;
+    Date beginningOwnership;
     /** Конец владения */
-    Date endOfOwnership;
+    Date endOwnership;
     /** Конец действия измерения */
-    int endOfMeasurement;
+    int endMeasurement;
 
     /** Начало действия измерения */
-    int beginningOfMeasurement;
+    int beginningMeasurement;
 
     /** Единица измерения площади */
-    Unit UnitOfArea;
+    Unit UnitArea;
 }
