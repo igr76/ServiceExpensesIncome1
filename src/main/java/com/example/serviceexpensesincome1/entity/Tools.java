@@ -2,11 +2,23 @@ package com.example.serviceexpensesincome1.entity;
 
 import com.example.serviceexpensesincome1.dto.Type;
 import com.example.serviceexpensesincome1.dto.Unit;
+import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import java.util.Date;
 /** Cущность основые средства */
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@Entity
 public class Tools {
     /** ID основного средства */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int Id;
     /** Класс основного средства */
     Type type;

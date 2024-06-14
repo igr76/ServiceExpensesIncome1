@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.NoArgsConstructor;
@@ -19,11 +20,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 /** Контроллер распределения счетов */
 @NoArgsConstructor
-@RequestMapping("/Distribution")
+@RequestMapping("/distribution")
 @Slf4j
 @Tag(name = "распределения счетов")
 @RestController
@@ -208,12 +211,19 @@ public class DistributionController {
             @ApiResponse(responseCode = "200", description = "OK", content = {
                     @Content(array = @ArraySchema(schema = @Schema(implementation = ScoreDTO.class)))})
     })
-    @GetMapping("history/")
-    public ResponseEntity<List<DistributionHistoryDTO>> getHistory(@PathVariable(name = "id")
-                                                                                         @NotBlank(message = "id не должен быть пустым")
-                                                                                         @Min(value = 1, message = "Идентификатор должен быть больше 0")
-                                                                                         @Parameter(description = "Идентификатор объявления",
-                                                                                                 example = "1") int id) {
-        return ResponseEntity.ok(distributionService.getHistory());
+    @GetMapping("history/{year1}/{year2}")
+    public ResponseEntity<List<DistributionHistoryDTO>> getHistory(@PathVariable(name = "year1")
+                                                                       @NotBlank(message = "year не должен быть пустым")
+                                                                       @Min(value = 1, message = "Идентификатор должен быть больше 0")
+                                                                       @Max(value = 9999,message = "Идентификатор должен быть меньше 9999")
+                                                                       @Parameter(description = "Идентификатор объявления",
+                                                                                                 example = "1") LocalDate year1,
+                                                                   @PathVariable(name = "year1")
+                                                                   @NotBlank(message = "year не должен быть пустым")
+                                                                   @Min(value = 1, message = "Идентификатор должен быть больше 0")
+                                                                   @Max(value = 9999,message = "Идентификатор должен быть меньше 9999")
+                                                                   @Parameter(description = "Идентификатор объявления",
+                                                                           example = "1") LocalDate year2) {
+        return ResponseEntity.ok(distributionService.getHistory(year1,year2));
     }
 }
