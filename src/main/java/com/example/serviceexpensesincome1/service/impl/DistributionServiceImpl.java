@@ -18,6 +18,8 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -45,6 +47,9 @@ public class DistributionServiceImpl implements DistributionService {
     public Object updateDistribution(Integer id, DistributionDTO distributionDTO) {
         Distribution distribution = distributionRepository.findById(id).orElseThrow(ElemNotFound::new);
         distributionRepository.save(distributionMapper.toEntity(distributionDTO));
+        DistributionHistory distributionHistory=distributionMapper.toHistory(distributionMapper.toEntity(distributionDTO));
+        distributionHistory.setDateRegistration(LocalDate.now());
+        distributionHistoryRepository.save(distributionHistory);
         return distributionDTO;
     }
 
@@ -112,7 +117,7 @@ public class DistributionServiceImpl implements DistributionService {
     }
 
     @Override
-    public List<DistributionHistoryDTO> getHistory(Date year1, Date year2) {
+    public List<DistributionHistoryDTO> getHistory(LocalDate year1, LocalDate year2) {
         List<DistributionHistory>  distributionHistoryList=distributionHistoryRepository.findBetweenDate(year1,year2);
         return null;
     }

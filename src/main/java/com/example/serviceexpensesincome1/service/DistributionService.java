@@ -3,6 +3,7 @@ package com.example.serviceexpensesincome1.service;
 
 import com.example.serviceexpensesincome1.dto.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 /** Сервис распределения счетов */
@@ -32,5 +33,5 @@ public interface DistributionService {
     /** Удалить договор по id */
     void removeContract(int id);
     /** Получить истории распределения расходов */
-    List<DistributionHistoryDTO> getHistory(Date year1, Date year2);
+    List<DistributionHistoryDTO> getHistory(LocalDate year1, LocalDate year2);
 }

@@ -1,10 +1,29 @@
 package com.example.serviceexpensesincome1.entity;
 
 import com.example.serviceexpensesincome1.dto.Type;
+import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 /** Cущность история  распределения счетов */
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@Table(name = "history")
+@Entity
 public class DistributionHistory {
+    /**
+     * id счетов
+     */
+    @jakarta.persistence.Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    Integer id;
     /** Компания */
     String company;
     /** Номер счета */
@@ -38,5 +57,6 @@ public class DistributionHistory {
     /** Счёт главной книги */
     int Score;
     /** Дата регистрации */
-    Date DateRegistration;
+    @Column(name = "date_registration")
+    LocalDate DateRegistration;
 }

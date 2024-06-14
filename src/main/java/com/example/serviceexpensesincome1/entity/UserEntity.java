@@ -1,6 +1,7 @@
 package com.example.serviceexpensesincome1.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import java.time.LocalDateTime;
@@ -14,16 +15,16 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-//@Table(name = "users")
-//@Entity
+@Table(name = "users")
+@Entity
 public class UserEntity {
 
   /**
    * id пользователя
    */
-//  @Id
-//  @GeneratedValue(strategy = GenerationType.IDENTITY)
-//  @Column(name = "id", nullable = false)
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id", nullable = false)
   Integer id;
 
   /**

@@ -20,6 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -216,13 +217,13 @@ public class DistributionController {
                                                                        @Min(value = 1, message = "Идентификатор должен быть больше 0")
                                                                        @Max(value = 9999,message = "Идентификатор должен быть меньше 9999")
                                                                        @Parameter(description = "Идентификатор объявления",
-                                                                                                 example = "1") Date year1,
+                                                                                                 example = "1") LocalDate year1,
                                                                    @PathVariable(name = "year1")
                                                                    @NotBlank(message = "year не должен быть пустым")
                                                                    @Min(value = 1, message = "Идентификатор должен быть больше 0")
                                                                    @Max(value = 9999,message = "Идентификатор должен быть меньше 9999")
                                                                    @Parameter(description = "Идентификатор объявления",
-                                                                           example = "1") Date year2) {
+                                                                           example = "1") LocalDate year2) {
         return ResponseEntity.ok(distributionService.getHistory(year1,year2));
     }
 }
