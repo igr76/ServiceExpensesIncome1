@@ -36,10 +36,6 @@ public class UserDTO {
    * телефон пользователя
    */
   String phone;
-  /**
-   * дата регистрации пользователя
-   */
-  String regDate;
 
 
 }

@@ -37,5 +37,5 @@ public class ToolsDTO {
     int square;
 
     /** Единица измерения площади */
-    Unit UnitOfArea;
+    Unit unitOfArea;
 }

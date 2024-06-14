@@ -16,7 +16,7 @@ public class Service {
     /** Номер услуги */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int idService;
+    int id;
     /** Категория услуги */
     String nameService;
 }

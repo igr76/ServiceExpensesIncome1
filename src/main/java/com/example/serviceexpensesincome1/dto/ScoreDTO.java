@@ -28,5 +28,5 @@ public class ScoreDTO {
     /** Объем оказанной услуги */
     int sizeService;
     /** Стоимость без НДС */
-    int costNoNDS;
+    int costNoNds;
 }
