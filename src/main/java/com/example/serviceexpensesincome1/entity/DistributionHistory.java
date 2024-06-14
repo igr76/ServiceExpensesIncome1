@@ -20,10 +20,10 @@ public class DistributionHistory {
     /**
      * id счетов
      */
-    @jakarta.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    Integer id;
+    @Column(insertable=false, updatable=false)
+    int id;
     /** Компания */
     String company;
     /** Номер счета */
@@ -47,7 +47,7 @@ public class DistributionHistory {
     /** Площадь */
     int square;
     /** ID основного средства */
-    int Id;
+    int IdO;
     /** Класс основного средства */
     Type type;
     /** Признак Использования */

@@ -9,15 +9,23 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 /** Контроллер  счетов */
+@NoArgsConstructor
+@RequestMapping("/score")
+@Slf4j
+@Tag(name = "ведение счетов")
+@RestController
 public class ScoreController {
     private ScoreService scoreService;
     @Operation(summary = "Получить все cчета")

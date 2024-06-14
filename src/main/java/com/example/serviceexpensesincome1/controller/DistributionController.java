@@ -26,7 +26,7 @@ import java.util.List;
 
 /** Контроллер распределения счетов */
 @NoArgsConstructor
-@RequestMapping("/Distribution")
+@RequestMapping("/distribution")
 @Slf4j
 @Tag(name = "распределения счетов")
 @RestController

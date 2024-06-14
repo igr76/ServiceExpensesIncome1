@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
     UserEntity userEntity = findEntityByEmail(nameEmail);
     int id = userEntity.getId();
 
-    UserEntity oldUser = userRepository.findById(id);
+    UserEntity oldUser = userRepository.findById(id).orElseThrow(ElemNotFound::new);
 
     oldUser.setEmail(userEntity.getEmail());
     oldUser.setFirstName(newUserDto.getFirstName());
