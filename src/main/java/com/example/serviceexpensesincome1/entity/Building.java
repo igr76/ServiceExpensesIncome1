@@ -30,6 +30,6 @@ public class Building {
     int beginningMeasurement;
 
     /** Единица измерения площади */
-    Unit UnitArea;
+    Unit unitArea;
 
 }

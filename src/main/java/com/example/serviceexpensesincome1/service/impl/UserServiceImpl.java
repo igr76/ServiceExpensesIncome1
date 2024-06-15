@@ -59,11 +59,6 @@ public class UserServiceImpl implements UserService {
     oldUser.setLastName(newUserDto.getLastName());
     oldUser.setPhone(newUserDto.getPhone());
 
-    try {
-      oldUser.setRegDate(userEntity.getRegDate());
-    } catch (Exception e) {
-      log.info("Ошибка изменения даты регистрации");
-    }
 
     userRepository.save(oldUser);
 
