@@ -50,5 +50,5 @@ public class Distribution {
     /** Распределенная сумма */
     int sizeDistribution;
     /** Счёт главной книги */
-    int Score;
+    int score;
 }

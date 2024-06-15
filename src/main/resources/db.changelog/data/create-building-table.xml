@@ -12,13 +12,24 @@
                 <tableExists tableName="building"/>
             </not>
         </preConditions>
-
-        <createTable tableName="users">
+        <createTable tableName="building">
             <column name="id" type="INT" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="id_building" type="INT">
+            <column name="beginning_ownership" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="end_ownership" type="DATE">
                 <constraints  nullable="false"/>
+            </column>
+            <column name="end_measurement" type="INT">
+                <constraints  nullable="false"/>
+            </column>
+            <column name="beginning_measurement" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="unit_area" type="VARCHAR(16)">
+                <constraints nullable="false"/>
             </column>
 
         </createTable>

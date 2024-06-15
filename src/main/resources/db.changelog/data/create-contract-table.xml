@@ -17,20 +17,8 @@
             <column name="id" type="INT" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="beginning_ownership" type="DATE">
-                <constraints nullable="false"/>
-            </column>
-            <column name="end_ownership" type="DATE">
+            <column name="id_building" type="INT">
                 <constraints  nullable="false"/>
-            </column>
-            <column name="end_measurement" type="INT">
-                <constraints  nullable="false"/>
-            </column>
-            <column name="beginning_measurement" type="INT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="Unit_area" type="VARCHAR(16)">
-                <constraints nullable="false"/>
             </column>
         </createTable>
 
