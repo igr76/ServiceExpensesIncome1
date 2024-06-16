@@ -16,7 +16,7 @@ import java.util.List;
 public class ForecastingDTO {
     int idBuilding;
     int nomberScore;
-    int department;
+    int department =1;
     List<Integer> sumMonth;
 
 }
