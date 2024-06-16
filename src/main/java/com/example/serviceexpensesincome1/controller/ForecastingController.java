@@ -1,19 +1,15 @@
 package com.example.serviceexpensesincome1.controller;
 
-import com.example.serviceexpensesincome1.dto.DistributionDTO;
 import com.example.serviceexpensesincome1.dto.ForecastingDTO;
 import com.example.serviceexpensesincome1.dto.ScoreDTO;
 import com.example.serviceexpensesincome1.service.DistributionService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
