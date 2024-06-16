@@ -14,9 +14,13 @@ import java.util.List;
 @EqualsAndHashCode
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ForecastingDTO {
+    /** Позиция счета */
     int idBuilding;
+    /** Счёт главной книги */
     int nomberScore;
+    /** депатамент */
     int department =1;
+    /** сумма по месяцам */
     List<Integer> sumMonth;
 
 }
