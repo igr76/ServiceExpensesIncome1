@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 /** Связь договора и здание */
 @Getter
@@ -21,8 +22,8 @@ public class Union {
     /** ID здания */
     int idBuilding;
     /** Дата начала действия связи */
-    Date beginningOfUnion;
+    LocalDate beginningOfUnion;
     /** Дата окончания действия связи*/
-    Date endOfUnion;
+    LocalDate endOfUnion;
 
 }

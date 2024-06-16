@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 /** Cущность здание */
 @Getter
@@ -20,9 +21,9 @@ public class Building {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int Id;
     /** Начало владения */
-    Date beginningOwnership;
+    LocalDate beginningOwnership;
     /** Конец владения */
-    Date endOwnership;
+    LocalDate endOwnership;
     /** Конец действия измерения */
     int endMeasurement;
 

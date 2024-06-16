@@ -16,9 +16,9 @@ public class BuildingDTO {
     /** ID здания */
     int Id;
     /** Начало владения */
-    Date beginningOwnership;
+    String beginningOwnership;
     /** Конец владения */
-    Date endOwnership;
+    String endOwnership;
     /** Конец действия измерения */
     int endMeasurement;
 
@@ -26,5 +26,5 @@ public class BuildingDTO {
     int beginningMeasurement;
 
     /** Единица измерения площади */
-    Unit UnitArea;
+    Unit unitArea;
 }

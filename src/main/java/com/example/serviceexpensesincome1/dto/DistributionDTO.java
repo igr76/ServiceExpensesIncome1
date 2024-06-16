@@ -3,6 +3,7 @@ package com.example.serviceexpensesincome1.dto;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 /** DTO распределения счетов */
 @Getter
@@ -19,11 +20,11 @@ public class DistributionDTO {
     /** Позиция счета */
     int idBuilding;
     /** Год счета */
-    Date accountYear;
+    String accountYear;
     /** Номер позиции распределения */
     int numberPosition;
     /** Дата отражения счета в учётной системе */
-    Date dateAccount;
+    String dateAccount;
     /** id договора */
     int idContract;
     /** ID услуги */
@@ -43,5 +44,5 @@ public class DistributionDTO {
     /** Распределенная сумма */
     int sizeDistribution;
     /** Счёт главной книги */
-    int Score;
+    int score;
 }

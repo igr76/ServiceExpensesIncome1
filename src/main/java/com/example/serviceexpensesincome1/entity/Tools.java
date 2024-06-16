@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 /** Cущность основые средства */
 @Getter
@@ -30,13 +31,13 @@ public class Tools {
     /** ID здания */
     int IdBuilding;
     /** Дата начала действия связи с зданием*/
-    Date beginningOfOwnershipUnion;
+    LocalDate beginningOfOwnershipUnion;
     /** Дата окончания действия связи с зданием */
-    Date endOfOwnershipUnion;
+    LocalDate endOfOwnershipUnion;
     /** Дата ввода в эксплуатацию */
-    Date beginningOfOperation;
+    LocalDate beginningOfOperation;
     /** Дата выбытия*/
-    Date endOfOperation;
+    LocalDate endOfOperation;
 
     /** Площадь */
     int square;
