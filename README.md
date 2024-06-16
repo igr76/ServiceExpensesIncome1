@@ -40,13 +40,12 @@
 ## Используемые технологии
 
 - Java 17
-- Spring Boot 3.1.1
+- Spring Boot 3.3.1
 - Liombok
 - postgresql
 - liquibase
 - Mockito
 - mapstruct
-- spring security
 
 
 
