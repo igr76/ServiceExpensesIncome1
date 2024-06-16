@@ -22,7 +22,7 @@ public class DistributionHistoryDTO {
     /** Позиция счета */
     int idBuilding;
     /** Год счета */
-    String accountYear;
+    LocalDate accountYear;
     /** Номер позиции распределения */
     int numberPosition;
     /** Дата отражения счета в учётной системе */

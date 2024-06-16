@@ -11,11 +11,9 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -34,11 +32,10 @@ public class DistributionServiceImpl implements DistributionService {
      DistributionHistoryMapper distributionHistoryMapper;
 
     public DistributionServiceImpl(DistributionRepository distributionRepository, DistributionMapper distributionMapper,
-                                   ToolsRepository toolsRepository, ToolsMapper toolsMapper,
-                                   ServiceRepository serviceRepository, ServiceMapper serviceMapper,
-                                   ContractRepository contractRepository, ContractMapper contractMapper,
-                                   DistributionHistoryRepository distributionHistoryRepository, DistributionHistoryMapper
-                                           distributionHistoryMapper) {
+                                   ToolsRepository toolsRepository, ToolsMapper toolsMapper, ServiceRepository
+                                           serviceRepository, ServiceMapper serviceMapper, ContractRepository
+                                           contractRepository, ContractMapper contractMapper, DistributionHistoryRepository
+                                           distributionHistoryRepository, DistributionHistoryMapper distributionHistoryMapper) {
         this.distributionRepository = distributionRepository;
         this.distributionMapper = distributionMapper;
         this.toolsRepository = toolsRepository;
@@ -141,20 +138,20 @@ public class DistributionServiceImpl implements DistributionService {
         Period period = Period.between(date1, date2);
         int countMonth=period.getMonths();
         List<ForecastingDTO> forecastingDTOList = null;
-        List<Forecasting> forecastingList=distributionRepository.findForecasting(date1,date2);
-        forecastingList.stream()
-                .forEach(e-> {e.setSumYear(e.getSumYear()/countMonth);});
-
-        for (Forecasting e: forecastingList) {
-            ForecastingDTO forecastingDTO= new ForecastingDTO();
-            forecastingDTO.setIdBuilding(e.getIdBuilding());
-            forecastingDTO.setNomberScore(e.getNomberScore());
-            List<Integer> list= new ArrayList<>();
-            for (int i = 0; i < countMonth; i++) {
-                list.add(e.getSumYear());
-            }
-            forecastingDTO.setSumMonth(list);
-        }
+//        List<Forecasting> forecastingList=distributionRepository.findForecasting(date1,date2);
+//        forecastingList.stream()
+//                .forEach(e-> {e.setSumYear(e.getSumYear()/countMonth);});
+//
+//        for (Forecasting e: forecastingList) {
+//            ForecastingDTO forecastingDTO= new ForecastingDTO();
+//            forecastingDTO.setIdBuilding(e.getIdBuilding());
+//            forecastingDTO.setNomberScore(e.getNomberScore());
+//            List<Integer> list= new ArrayList<>();
+//            for (int i = 0; i < countMonth; i++) {
+//                list.add(e.getSumYear());
+//            }
+//            forecastingDTO.setSumMonth(list);
+//        }
         return forecastingDTOList;
     }
 }
