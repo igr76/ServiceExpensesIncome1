@@ -31,7 +31,7 @@
 Вариант 2
 
 Клонируем проект в IntelliJ IDEA.
-Он находится по адресу https://github.com/igr76/taskManagement
+Он находится по адресу https://github.com/igr76/ServiceExpensesIncome1
 Подключаем postgresql с заменой имени пользователя, Бд и пароля в [application.properties]
 Запускаем проект.
 Документация Api реализована с помощью свагера по адресу http://localhost:8081/swagger-ui/index.html.
