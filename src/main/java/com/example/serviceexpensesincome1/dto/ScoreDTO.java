@@ -18,13 +18,13 @@ public class ScoreDTO {
     /** Позиция счета */
     int idBuilding;
     /** Год счета */
-    Date accountYear;
+    String accountYear;
     /** ID услуги */
     int idService;
     /** Номер договора */
     int contractNumber;
     /** Дата отражения счета в учётной системе */
-    Date dateAccount;
+    String dateAccount;
     /** Объем оказанной услуги */
     int sizeService;
     /** Стоимость без НДС */

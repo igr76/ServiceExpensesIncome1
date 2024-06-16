@@ -14,8 +14,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,9 +31,10 @@ import java.util.List;
 @RequestMapping("/distribution")
 @Slf4j
 @Tag(name = "распределения счетов")
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @RestController
 public class DistributionController {
-   private DistributionService distributionService;
+    DistributionService distributionService;
     public DistributionController(DistributionService distributionService) {
         this.distributionService = distributionService;
     }

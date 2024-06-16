@@ -31,11 +31,11 @@ public class DistributionHistory {
     /** Позиция счета */
     int idBuilding;
     /** Год счета */
-    Date accountYear;
+    LocalDate accountYear;
     /** Номер позиции распределения */
     int numberPosition;
     /** Дата отражения счета в учётной системе */
-    Date dateAccount;
+    LocalDate dateAccount;
     /** id договора */
     int idContract;
     /** id услуги */

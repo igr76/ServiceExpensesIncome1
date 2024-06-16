@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 /** Cущность  счетов */
 @Getter
@@ -21,13 +22,13 @@ public class Score {
     /** Позиция счета */
     int idBuilding;
     /** Год счета */
-    Date accountYear;
+    LocalDate accountYear;
     /** ID услуги */
     int idService;
     /** Номер договора */
     int contractNumber;
     /** Дата отражения счета в учётной системе */
-    Date dateAccount;
+    LocalDate dateAccount;
     /** Объем оказанной услуги */
     int sizeService;
     /** Стоимость без НДС */

@@ -1,14 +1,7 @@
 package com.example.serviceexpensesincome1.service.impl;
 
-import com.example.serviceexpensesincome1.dto.ContractDTO;
-import com.example.serviceexpensesincome1.dto.DistributionDTO;
-import com.example.serviceexpensesincome1.dto.ServiceDTO;
-import com.example.serviceexpensesincome1.dto.ToolsDTO;
-import com.example.serviceexpensesincome1.dto.DistributionHistoryDTO;
-import com.example.serviceexpensesincome1.entity.Contract;
-import com.example.serviceexpensesincome1.entity.Distribution;
-import com.example.serviceexpensesincome1.entity.DistributionHistory;
-import com.example.serviceexpensesincome1.entity.Tools;
+import com.example.serviceexpensesincome1.dto.*;
+import com.example.serviceexpensesincome1.entity.*;
 import com.example.serviceexpensesincome1.exeption.ElemNotFound;
 import com.example.serviceexpensesincome1.mapper.*;
 import com.example.serviceexpensesincome1.repository.*;
@@ -18,9 +11,9 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
 import java.time.LocalDate;
-import java.util.Date;
+import java.time.Period;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -37,6 +30,24 @@ public class DistributionServiceImpl implements DistributionService {
      ContractMapper contractMapper;
      DistributionHistoryRepository distributionHistoryRepository;
      DistributionHistoryMapper distributionHistoryMapper;
+
+    public DistributionServiceImpl(DistributionRepository distributionRepository, DistributionMapper distributionMapper,
+                                   ToolsRepository toolsRepository, ToolsMapper toolsMapper, ServiceRepository
+                                           serviceRepository, ServiceMapper serviceMapper, ContractRepository
+                                           contractRepository, ContractMapper contractMapper, DistributionHistoryRepository
+                                           distributionHistoryRepository, DistributionHistoryMapper distributionHistoryMapper) {
+        this.distributionRepository = distributionRepository;
+        this.distributionMapper = distributionMapper;
+        this.toolsRepository = toolsRepository;
+        this.toolsMapper = toolsMapper;
+        this.serviceRepository = serviceRepository;
+        this.serviceMapper = serviceMapper;
+        this.contractRepository = contractRepository;
+        this.contractMapper = contractMapper;
+        this.distributionHistoryRepository = distributionHistoryRepository;
+        this.distributionHistoryMapper = distributionHistoryMapper;
+    }
+
     @Override
     public DistributionDTO getDistributionId(int id) {
         Distribution distribution = distributionRepository.findById(id).orElseThrow(ElemNotFound::new);
@@ -120,5 +131,27 @@ public class DistributionServiceImpl implements DistributionService {
     public List<DistributionHistoryDTO> getHistory(LocalDate year1, LocalDate year2) {
         List<DistributionHistory>  distributionHistoryList=distributionHistoryRepository.findBetweenDate(year1,year2);
         return null;
+    }
+
+    @Override
+    public List<ForecastingDTO> getForecasting( LocalDate date1, LocalDate date2) {
+        Period period = Period.between(date1, date2);
+        int countMonth=period.getMonths();
+        List<ForecastingDTO> forecastingDTOList = null;
+//        List<Forecasting> forecastingList=distributionRepository.findForecasting(date1,date2);
+//        forecastingList.stream()
+//                .forEach(e-> {e.setSumYear(e.getSumYear()/countMonth);});
+//
+//        for (Forecasting e: forecastingList) {
+//            ForecastingDTO forecastingDTO= new ForecastingDTO();
+//            forecastingDTO.setIdBuilding(e.getIdBuilding());
+//            forecastingDTO.setNomberScore(e.getNomberScore());
+//            List<Integer> list= new ArrayList<>();
+//            for (int i = 0; i < countMonth; i++) {
+//                list.add(e.getSumYear());
+//            }
+//            forecastingDTO.setSumMonth(list);
+//        }
+        return forecastingDTOList;
     }
 }

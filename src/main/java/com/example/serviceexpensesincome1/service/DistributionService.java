@@ -34,4 +34,6 @@ public interface DistributionService {
     void removeContract(int id);
     /** Получить истории распределения расходов */
     List<DistributionHistoryDTO> getHistory(LocalDate year1, LocalDate year2);
+
+   List<ForecastingDTO> getForecasting( LocalDate date1, LocalDate date2);
 }

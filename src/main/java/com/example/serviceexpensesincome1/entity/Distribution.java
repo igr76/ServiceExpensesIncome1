@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 /** Cущность распределения счетов */
 @Getter
@@ -26,11 +27,11 @@ public class Distribution {
     /** Позиция счета */
     int idBuilding;
     /** Год счета */
-    Date accountYear;
+    LocalDate accountYear;
     /** Номер позиции распределения */
     int numberPosition;
     /** Дата отражения счета в учётной системе */
-    Date dateAccount;
+    LocalDate dateAccount;
     /** id договора */
     int idContract;
     /** id услуги */
