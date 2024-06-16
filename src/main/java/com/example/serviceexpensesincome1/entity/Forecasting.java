@@ -7,7 +7,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.util.List;
-/** Cущность распределения счетов */
+/** Cущность прогнозирования счетов */
 @Getter
 @Setter
 @ToString
@@ -16,12 +16,15 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
 public class Forecasting {
-    /** ID здания */
+    /** ID  */
     @jakarta.persistence.Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int Id;
+    /** Позиция счета */
     int idBuilding;
+    /** Счёт главной книги */
     int nomberScore;
+    /** сумма за год */
     int sumYear;
 
 }

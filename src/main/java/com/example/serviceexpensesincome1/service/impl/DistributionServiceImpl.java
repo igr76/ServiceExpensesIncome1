@@ -21,7 +21,7 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class DistributionServiceImpl implements DistributionService {
      DistributionRepository distributionRepository;
-    private DistributionMapper distributionMapper;
+     DistributionMapper distributionMapper;
      ToolsRepository toolsRepository;
      ToolsMapper toolsMapper;
      ServiceRepository serviceRepository;
