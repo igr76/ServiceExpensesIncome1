@@ -10,14 +10,14 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface BuildingMapper {
-    @Mapping(target = "beginningOwnership", source = "beginningOwnership",
-            dateFormat = "dd-MM-yyyy ")
-    @Mapping(target = "endOwnership", source = "endOwnership",
-            dateFormat = "dd-MM-yyyy ")
+//    @Mapping(target = "beginningOwnership", source = "beginningOwnership",
+//            dateFormat = "dd-MM-yyyy ")
+//    @Mapping(target = "endOwnership", source = "endOwnership",
+//            dateFormat = "dd-MM-yyyy ")
     Building toEntity(BuildingDTO buildingDTO);
-    @Mapping(target = "beginningOwnership", source = "beginningOwnership",
-            dateFormat = "dd-MM-yyyy ")
-    @Mapping(target = "endOwnership", source = "endOwnership",
-            dateFormat = "dd-MM-yyyy ")
+//    @Mapping(target = "beginningOwnership", source = "beginningOwnership",
+//            dateFormat = "dd-MM-yyyy ")
+//    @Mapping(target = "endOwnership", source = "endOwnership",
+//            dateFormat = "dd-MM-yyyy ")
     BuildingDTO toHistory(Building building);
 }

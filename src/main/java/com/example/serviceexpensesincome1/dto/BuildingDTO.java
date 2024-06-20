@@ -3,6 +3,7 @@ package com.example.serviceexpensesincome1.dto;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 /** DTO здание */
 @Getter
@@ -16,9 +17,9 @@ public class BuildingDTO {
     /** ID здания */
     int Id;
     /** Начало владения */
-    String beginningOwnership;
+    LocalDate beginningOwnership;
     /** Конец владения */
-    String endOwnership;
+    LocalDate endOwnership;
     /** Конец действия измерения */
     int endMeasurement;
 

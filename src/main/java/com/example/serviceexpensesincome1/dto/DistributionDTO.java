@@ -20,11 +20,11 @@ public class DistributionDTO {
     /** Позиция счета */
     int idBuilding;
     /** Год счета */
-    String accountYear;
+    LocalDate accountYear;
     /** Номер позиции распределения */
     int numberPosition;
     /** Дата отражения счета в учётной системе */
-    String dateAccount;
+    LocalDate dateAccount;
     /** id договора */
     int idContract;
     /** ID услуги */
