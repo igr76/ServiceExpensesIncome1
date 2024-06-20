@@ -7,23 +7,23 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface ToolsMapper {
-    @Mapping(target = "beginningOfOwnershipUnion", source = "beginningOfOwnershipUnion",
-            dateFormat = "dd-MM-yyyy ")
-    @Mapping(target = "endOfOwnershipUnion", source = "endOfOwnershipUnion",
-            dateFormat = "dd-MM-yyyy ")
-    @Mapping(target = "beginningOfOperation", source = "beginningOfOperation",
-            dateFormat = "dd-MM-yyyy ")
-    @Mapping(target = "endOfOperation", source = "endOfOperation",
-            dateFormat = "dd-MM-yyyy ")
+//    @Mapping(target = "beginningOfOwnershipUnion", source = "beginningOfOwnershipUnion",
+//            dateFormat = "dd-MM-yyyy ")
+//    @Mapping(target = "endOfOwnershipUnion", source = "endOfOwnershipUnion",
+//            dateFormat = "dd-MM-yyyy ")
+//    @Mapping(target = "beginningOfOperation", source = "beginningOfOperation",
+//            dateFormat = "dd-MM-yyyy ")
+//    @Mapping(target = "endOfOperation", source = "endOfOperation",
+//            dateFormat = "dd-MM-yyyy ")
     Tools toEntity(ToolsDTO toolsDTO);
 
-    @Mapping(target = "beginningOfOwnershipUnion", source = "beginningOfOwnershipUnion",
-            dateFormat = "dd-MM-yyyy ")
-    @Mapping(target = "endOfOwnershipUnion", source = "endOfOwnershipUnion",
-            dateFormat = "dd-MM-yyyy ")
-    @Mapping(target = "beginningOfOperation", source = "beginningOfOperation",
-            dateFormat = "dd-MM-yyyy ")
-    @Mapping(target = "endOfOperation", source = "endOfOperation",
-            dateFormat = "dd-MM-yyyy ")
+//    @Mapping(target = "beginningOfOwnershipUnion", source = "beginningOfOwnershipUnion",
+//            dateFormat = "dd-MM-yyyy ")
+//    @Mapping(target = "endOfOwnershipUnion", source = "endOfOwnershipUnion",
+//            dateFormat = "dd-MM-yyyy ")
+//    @Mapping(target = "beginningOfOperation", source = "beginningOfOperation",
+//            dateFormat = "dd-MM-yyyy ")
+//    @Mapping(target = "endOfOperation", source = "endOfOperation",
+//            dateFormat = "dd-MM-yyyy ")
     ToolsDTO toDTO(Tools tools);
 }

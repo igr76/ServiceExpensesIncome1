@@ -6,61 +6,59 @@ import com.example.serviceexpensesincome1.exeption.ElemNotFound;
 import com.example.serviceexpensesincome1.mapper.*;
 import com.example.serviceexpensesincome1.repository.*;
 import com.example.serviceexpensesincome1.service.DistributionService;
-import lombok.AccessLevel;
-import lombok.experimental.FieldDefaults;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
+@AllArgsConstructor
 @Service
-@FieldDefaults(level = AccessLevel.PRIVATE)
 public class DistributionServiceImpl implements DistributionService {
-     DistributionRepository distributionRepository;
-     DistributionMapper distributionMapper;
-     ToolsRepository toolsRepository;
-     ToolsMapper toolsMapper;
-     ServiceRepository serviceRepository;
-     ServiceMapper serviceMapper;
-     ContractRepository contractRepository;
-     ContractMapper contractMapper;
-     DistributionHistoryRepository distributionHistoryRepository;
-     DistributionHistoryMapper distributionHistoryMapper;
+     private DistributionRepository distributionRepository;
+     private DistributionMapper distributionMapper;
+     private ToolsRepository toolsRepository;
+     private ToolsMapper toolsMapper;
+     private ServiceRepository serviceRepository;
+     private ServiceMapper serviceMapper;
+     private ContractRepository contractRepository;
+     private ContractMapper contractMapper;
+     private DistributionHistoryRepository distributionHistoryRepository;
+     private DistributionHistoryMapper distributionHistoryMapper;
 
-    public DistributionServiceImpl(DistributionRepository distributionRepository, DistributionMapper distributionMapper,
-                                   ToolsRepository toolsRepository, ToolsMapper toolsMapper, ServiceRepository
-                                           serviceRepository, ServiceMapper serviceMapper, ContractRepository
-                                           contractRepository, ContractMapper contractMapper, DistributionHistoryRepository
-                                           distributionHistoryRepository, DistributionHistoryMapper distributionHistoryMapper) {
-        this.distributionRepository = distributionRepository;
-        this.distributionMapper = distributionMapper;
-        this.toolsRepository = toolsRepository;
-        this.toolsMapper = toolsMapper;
-        this.serviceRepository = serviceRepository;
-        this.serviceMapper = serviceMapper;
-        this.contractRepository = contractRepository;
-        this.contractMapper = contractMapper;
-        this.distributionHistoryRepository = distributionHistoryRepository;
-        this.distributionHistoryMapper = distributionHistoryMapper;
-    }
+//    public DistributionServiceImpl(DistributionRepository distributionRepository, DistributionMapper distributionMapper,
+//                                   ToolsRepository toolsRepository, ToolsMapper toolsMapper, ServiceRepository serviceRepository,
+//                                   ServiceMapper serviceMapper, ContractRepository contractRepository, ContractMapper
+//                                           contractMapper, DistributionHistoryRepository distributionHistoryRepository,
+//                                   DistributionHistoryMapper distributionHistoryMapper) {
+//        this.distributionRepository = distributionRepository;
+//        this.distributionMapper = distributionMapper;
+//        this.toolsRepository = toolsRepository;
+//        this.toolsMapper = toolsMapper;
+//        this.serviceRepository = serviceRepository;
+//        this.serviceMapper = serviceMapper;
+//        this.contractRepository = contractRepository;
+//        this.contractMapper = contractMapper;
+//        this.distributionHistoryRepository = distributionHistoryRepository;
+//        this.distributionHistoryMapper = distributionHistoryMapper;
+//    }
 
     @Override
     public DistributionDTO getDistributionId(int id) {
         Distribution distribution = distributionRepository.findById(id).orElseThrow(ElemNotFound::new);
-        return distributionMapper.toDTO(distribution);
+        return null;//distributionMapper.toDTO(distribution);
     }
 
     @Override
     public Object updateDistribution(Integer id, DistributionDTO distributionDTO) {
-        Distribution distribution = distributionRepository.findById(id).orElseThrow(ElemNotFound::new);
-        distributionRepository.save(distributionMapper.toEntity(distributionDTO));
-        DistributionHistory distributionHistory=distributionMapper.toHistory(distributionMapper.toEntity(distributionDTO));
-        distributionHistory.setDateRegistration(LocalDate.now());
-        distributionHistoryRepository.save(distributionHistory);
+//        Distribution distribution = distributionRepository.findById(id).orElseThrow(ElemNotFound::new);
+//        distributionRepository.save(distributionMapper.toEntity(distributionDTO));
+//        DistributionHistory distributionHistory=distributionMapper.toHistory(distributionMapper.toEntity(distributionDTO));
+//        distributionHistory.setDateRegistration(LocalDate.now());
+//        distributionHistoryRepository.save(distributionHistory);
         return distributionDTO;
     }
 
@@ -73,7 +71,7 @@ public class DistributionServiceImpl implements DistributionService {
     @Override
     public ToolsDTO getToolsId(int id) {
         Tools tools = toolsRepository.findById(id).orElseThrow(ElemNotFound::new);
-        return toolsMapper.toDTO(tools);
+        return null;//toolsMapper.toDTO(tools);
     }
 
     @Override

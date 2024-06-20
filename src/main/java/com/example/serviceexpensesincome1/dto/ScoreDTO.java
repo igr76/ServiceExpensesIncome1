@@ -3,6 +3,7 @@ package com.example.serviceexpensesincome1.dto;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 /** DTO счетов */
 @Getter
@@ -18,13 +19,13 @@ public class ScoreDTO {
     /** Позиция счета */
     int idBuilding;
     /** Год счета */
-    String accountYear;
+    LocalDate accountYear;
     /** ID услуги */
     int idService;
     /** Номер договора */
     int contractNumber;
     /** Дата отражения счета в учётной системе */
-    String dateAccount;
+    LocalDate dateAccount;
     /** Объем оказанной услуги */
     int sizeService;
     /** Стоимость без НДС */

@@ -26,7 +26,7 @@ public class DistributionHistoryDTO {
     /** Номер позиции распределения */
     int numberPosition;
     /** Дата отражения счета в учётной системе */
-    String dateAccount;
+    LocalDate dateAccount;
     /** id договора */
     int idContract;
     /** id услуги */
@@ -48,5 +48,5 @@ public class DistributionHistoryDTO {
     /** Счёт главной книги */
     int score;
     /** Дата регистрации */
-    String DateRegistration;
+    LocalDate DateRegistration;
 }
