@@ -160,16 +160,18 @@ public class DistributionServiceImpl implements DistributionService {
     }
     //-------------------------Распределение счетов --------------------
     @Override
-    public List<CSVexport> CSVexport(MultipartFile file) throws IOException {
+    public List<DistributionDTO> CSVexport(MultipartFile file) throws IOException {
         CSVReader csvReader = new CSVReader((Reader) file);
         String[] nextRecord;
         DateTimeFormatter formatter= DateTimeFormatter.ofPattern("yyyy-MM-dd");
         List<CSVimport > csVimportList= new ArrayList<>();
+        List<Distribution> distributionListFinal = new ArrayList<>();
         List<CSVexport > csVexportList= new ArrayList<>();
+        List<Distribution> distributionList = new ArrayList<>();
         while ((nextRecord = csvReader.readNext()) != null) {
             CSVimport csVimport= new CSVimport();
             csVimport.setCompany(nextRecord[0]);
-            csVimport.setIdBuilding(Integer.parseInt(nextRecord[1]));
+            csVimport.setCategoryScore(Integer.parseInt(nextRecord[1]));
             csVimport.setAccountYear(nextRecord[2]);
             csVimport.setIdScore(Integer.parseInt(nextRecord[3]));
             csVimport.setCategoryScore(Integer.parseInt(nextRecord[4]));
@@ -177,9 +179,16 @@ public class DistributionServiceImpl implements DistributionService {
             csVimport.setIdService(Integer.parseInt(nextRecord[6]));
             csVimport.setDateAccount(nextRecord[7]);
             csVimport.setMoneyNoNDS(Integer.parseInt(nextRecord[8]));
-            csVimportList.add(csVimport);
+            distributionList = distributionRepository.distributionCSV(csVimport.getCompany(),
+                    LocalDate.parse(csVimport.getAccountYear(),formatter),csVimport.getIdScore(),
+                    csVimport.getCategoryScore(),csVimport.getIdContract(),csVimport.getIdService());
+            // распределение средств
+            for (Distribution e: distributionList) {
+                e.setScore(csVimport.getMoneyNoNDS()/distributionList.size());
+                distributionListFinal.add(e);
+            }
         }
-        return List.of();
+        return distributionMapper.toDTOlist(distributionListFinal);
     }
 
 

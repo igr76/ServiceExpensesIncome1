@@ -14,7 +14,6 @@ import lombok.experimental.FieldDefaults;
 public class CSVimport {
     /** Компания */
     String company;
-    int idBuilding;
     /** Год счета */
     String accountYear;
     /** Номер счета */

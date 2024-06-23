@@ -19,7 +19,7 @@ public class DistributionDTO {
     /** Номер счета */
     int idScore;
     /** Позиция счета */
-    int idBuilding;
+    int categoryScore;
     /** Год счета */
     String accountYear;
     /** Номер позиции распределения */

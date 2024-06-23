@@ -8,6 +8,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface DistributionMapper {
     @Mapping(target = "accountYear", source = "accountYear",
@@ -25,4 +27,5 @@ public interface DistributionMapper {
             dateFormat = "dd-MM-yyyy ")
     DistributionDTO toDTO(Distribution distribution);
 
+    List<DistributionDTO> toDTOlist(List<Distribution> distributionListFinal);
 }

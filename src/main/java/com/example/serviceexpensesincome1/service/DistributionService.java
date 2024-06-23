@@ -39,5 +39,5 @@ public interface DistributionService {
 
    List<ForecastingDTO> getForecasting( LocalDate date1, LocalDate date2);
 
-    List<CSVexport> CSVexport(MultipartFile file) throws IOException;
+    List<DistributionDTO> CSVexport(MultipartFile file) throws IOException;
 }

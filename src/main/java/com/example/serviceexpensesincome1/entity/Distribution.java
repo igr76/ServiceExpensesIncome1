@@ -25,7 +25,7 @@ public class Distribution {
     /** Номер счета */
     int idScore;
     /** Позиция счета */
-    int idBuilding;
+    int categoryScore;
     /** Год счета */
     LocalDate accountYear;
     /** Номер позиции распределения */

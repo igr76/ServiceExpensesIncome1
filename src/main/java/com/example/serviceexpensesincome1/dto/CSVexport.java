@@ -15,7 +15,6 @@ import java.time.LocalDate;
 public class CSVexport {
     /** Компания */
     String company;
-    int idBuilding;
     /** Год счета */
     String accountYear;
     /** Номер счета */
