@@ -17,10 +17,13 @@
             <column name="id" type="INT" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
+            <column name="company" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
             <column name="id_score" type="INT" >
                 <constraints  nullable="false"/>
             </column>
-            <column name="id_building" type="INT" >
+            <column name="category_score" type="INT" >
                 <constraints  nullable="false"/>
             </column>
             <column name="account_year" type="DATE">

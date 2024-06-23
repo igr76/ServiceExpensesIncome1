@@ -37,14 +37,14 @@ public class ForecastingController {
         this.distributionService = distributionService;
     }
 
-//    @Operation(summary = "Получить здание")
-//    @ApiResponses({
-//            @ApiResponse(responseCode = "200", description = "OK", content = {
-//                    @Content(array = @ArraySchema(schema = @Schema(implementation = ScoreDTO.class)))})
-//    })
-//    @GetMapping("{date1},{date2}")
-//    public ResponseEntity<List<ForecastingDTO>> getDistributionId(@PathVariable(name = "date1") LocalDate date1,
-//                                                                  @PathVariable(name = "date2")LocalDate date2) {
-//        return ResponseEntity.ok(distributionService.getForecasting(date1,date2));
-//    }
+    @Operation(summary = "Получить здание")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "OK", content = {
+                    @Content(array = @ArraySchema(schema = @Schema(implementation = ScoreDTO.class)))})
+    })
+    @GetMapping("{date1},{date2}")
+    public ResponseEntity<List<ForecastingDTO>> getDistributionId(@PathVariable(name = "date1") LocalDate date1,
+                                                                  @PathVariable(name = "date2")LocalDate date2) {
+        return ResponseEntity.ok(distributionService.getForecasting(date1,date2));
+    }
 }

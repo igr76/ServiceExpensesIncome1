@@ -8,21 +8,24 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface DistributionMapper {
-//    @Mapping(target = "accountYear", source = "accountYear",
-//            dateFormat = "dd-MM-yyyy ")
-//    @Mapping(target = "dateAccount", source = "dateAccount",
-//            dateFormat = "dd-MM-yyyy ")
+    @Mapping(target = "accountYear", source = "accountYear",
+            dateFormat = "dd-MM-yyyy ")
+    @Mapping(target = "dateAccount", source = "dateAccount",
+            dateFormat = "dd-MM-yyyy ")
     @Mapping(target = "id", ignore = true)
     Distribution toEntity(DistributionDTO distributionDTO);
-//    @Mapping(target = "DateRegistration", ignore = true)
-//   DistributionHistory toHistory(Distribution distribution);
+    @Mapping(target = "DateRegistration", ignore = true)
+   DistributionHistory toHistory(Distribution distribution);
 
-//    @Mapping(target = "accountYear", source = "accountYear",
-//            dateFormat = "dd-MM-yyyy ")
-//    @Mapping(target = "dateAccount", source = "dateAccount",
-//            dateFormat = "dd-MM-yyyy ")
+    @Mapping(target = "accountYear", source = "accountYear",
+            dateFormat = "dd-MM-yyyy ")
+    @Mapping(target = "dateAccount", source = "dateAccount",
+            dateFormat = "dd-MM-yyyy ")
     DistributionDTO toDTO(Distribution distribution);
 
+    List<DistributionDTO> toDTOlist(List<Distribution> distributionListFinal);
 }

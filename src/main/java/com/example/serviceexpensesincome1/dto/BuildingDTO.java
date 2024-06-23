@@ -17,9 +17,9 @@ public class BuildingDTO {
     /** ID здания */
     int Id;
     /** Начало владения */
-    LocalDate beginningOwnership;
+    String beginningOwnership;
     /** Конец владения */
-    LocalDate endOwnership;
+    String endOwnership;
     /** Конец действия измерения */
     int endMeasurement;
 
