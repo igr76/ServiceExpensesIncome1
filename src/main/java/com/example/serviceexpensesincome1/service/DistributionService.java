@@ -2,7 +2,9 @@ package com.example.serviceexpensesincome1.service;
 
 
 import com.example.serviceexpensesincome1.dto.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -36,4 +38,6 @@ public interface DistributionService {
     List<DistributionHistoryDTO> getHistory(LocalDate year1, LocalDate year2);
 
    List<ForecastingDTO> getForecasting( LocalDate date1, LocalDate date2);
+
+    List<CSVexport> CSVexport(MultipartFile file) throws IOException;
 }

@@ -9,15 +9,15 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface ScoreMapper {
-//    @Mapping(target = "accountYear", source = "accountYear",
-//            dateFormat = "dd-MM-yyyy ")
-//    @Mapping(target = "dateAccount", source = "dateAccount",
-//            dateFormat = "dd-MM-yyyy ")
+    @Mapping(target = "accountYear", source = "accountYear",
+            dateFormat = "dd-MM-yyyy ")
+    @Mapping(target = "dateAccount", source = "dateAccount",
+            dateFormat = "dd-MM-yyyy ")
     Score toEntity(ScoreDTO scoreDTO);
-//    @Mapping(target = "accountYear", source = "accountYear",
-//            dateFormat = "dd-MM-yyyy ")
-//    @Mapping(target = "dateAccount", source = "dateAccount",
-//            dateFormat = "dd-MM-yyyy ")
+    @Mapping(target = "accountYear", source = "accountYear",
+            dateFormat = "dd-MM-yyyy ")
+    @Mapping(target = "dateAccount", source = "dateAccount",
+            dateFormat = "dd-MM-yyyy ")
     ScoreDTO toDTO(Score score);
     List<ScoreDTO> toDTOlist(List<Score> list);
 }

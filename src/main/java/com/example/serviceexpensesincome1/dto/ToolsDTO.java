@@ -26,13 +26,13 @@ public class ToolsDTO {
     /** ID здания */
     int IdBuilding;
     /** Дата начала действия связи с зданием*/
-    LocalDate beginningOfOwnershipUnion;
+    String beginningOfOwnershipUnion;
     /** Дата окончания действия связи с зданием */
-    LocalDate endOfOwnershipUnion;
+    String endOfOwnershipUnion;
     /** Дата ввода в эксплуатацию */
-    LocalDate beginningOfOperation;
+    String beginningOfOperation;
     /** Дата выбытия*/
-    LocalDate endOfOperation;
+    String endOfOperation;
 
     /** Площадь */
     int square;
