@@ -37,7 +37,7 @@ public class ForecastingController {
         this.distributionService = distributionService;
     }
 
-    @Operation(summary = "Получить здание")
+    @Operation(summary = "прогнозирования расходов")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "OK", content = {
                     @Content(array = @ArraySchema(schema = @Schema(implementation = ScoreDTO.class)))})

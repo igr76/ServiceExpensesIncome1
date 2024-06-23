@@ -77,7 +77,7 @@ public class DistributionServiceImpl implements DistributionService {
     @Override
     public ToolsDTO getToolsId(int id) {
         Tools tools = toolsRepository.findById(id).orElseThrow(ElemNotFound::new);
-        return null;//toolsMapper.toDTO(tools);
+        return toolsMapper.toDTO(tools);
     }
 
     @Override
@@ -168,8 +168,10 @@ public class DistributionServiceImpl implements DistributionService {
         List<Distribution> distributionListFinal = new ArrayList<>();
         List<CSVexport > csVexportList= new ArrayList<>();
         List<Distribution> distributionList = new ArrayList<>();
+        int sumSquaier =0;
         while ((nextRecord = csvReader.readNext()) != null) {
             CSVimport csVimport= new CSVimport();
+            // получение данных из файла
             csVimport.setCompany(nextRecord[0]);
             csVimport.setCategoryScore(Integer.parseInt(nextRecord[1]));
             csVimport.setAccountYear(nextRecord[2]);
@@ -183,8 +185,12 @@ public class DistributionServiceImpl implements DistributionService {
                     LocalDate.parse(csVimport.getAccountYear(),formatter),csVimport.getIdScore(),
                     csVimport.getCategoryScore(),csVimport.getIdContract(),csVimport.getIdService());
             // распределение средств
+            // вычисление общей площади
             for (Distribution e: distributionList) {
-                e.setScore(csVimport.getMoneyNoNDS()/distributionList.size());
+                sumSquaier+=e.getSquare();
+            }  //распределение средств учитывая площадь
+            for (Distribution e: distributionList) {
+                e.setScore(csVimport.getMoneyNoNDS()/(e.getSquare()*100/sumSquaier));
                 distributionListFinal.add(e);
             }
         }
