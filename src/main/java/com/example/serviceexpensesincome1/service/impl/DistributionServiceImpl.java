@@ -40,12 +40,15 @@ public class DistributionServiceImpl implements DistributionService {
      private ContractMapper contractMapper;
      private DistributionHistoryRepository distributionHistoryRepository;
      private DistributionHistoryMapper distributionHistoryMapper;
+     private  BuildingRepository buildingRepository;
+     private  BuildingMapper buildingMapper;
+
 
     public DistributionServiceImpl(DistributionRepository distributionRepository, DistributionMapper distributionMapper,
                                    ToolsRepository toolsRepository, ToolsMapper toolsMapper, ServiceRepository serviceRepository,
                                    ServiceMapper serviceMapper, ContractRepository contractRepository, ContractMapper
                                            contractMapper, DistributionHistoryRepository distributionHistoryRepository,
-                                   DistributionHistoryMapper distributionHistoryMapper) {
+                                   DistributionHistoryMapper distributionHistoryMapper, BuildingRepository buildingRepository, BuildingMapper buildingMapper) {
         this.distributionRepository = distributionRepository;
         this.distributionMapper = distributionMapper;
         this.toolsRepository = toolsRepository;
@@ -56,8 +59,10 @@ public class DistributionServiceImpl implements DistributionService {
         this.contractMapper = contractMapper;
         this.distributionHistoryRepository = distributionHistoryRepository;
         this.distributionHistoryMapper = distributionHistoryMapper;
+        this.buildingRepository = buildingRepository;
+        this.buildingMapper = buildingMapper;
     }
-    //------------------Ведение справочника зданий;-------------------------------
+    //------------------Ведение справочника распределения счетов;-------------------------------
     @Override
     public DistributionDTO getDistributionId(int id) {
         Distribution distribution = distributionRepository.findById(id).orElseThrow(ElemNotFound::new);
@@ -260,6 +265,26 @@ public class DistributionServiceImpl implements DistributionService {
             throw new RuntimeException(e);
         }
         return (MultipartFile) workbook;
+    }
+
+    @Override
+    public BuildingDTO getBuildingId(int id) {
+        Building building= buildingRepository.findById(id).orElseThrow(ElemNotFound::new);
+        return buildingMapper.toDTO(building);
+    }
+
+    @Override
+    public Object updateBuilding(Integer id, BuildingDTO buildingDTO) {
+        Building building= buildingRepository.findById(id).orElseThrow(ElemNotFound::new);
+        buildingRepository.save(buildingMapper.toEntity(buildingDTO));
+        return buildingDTO;
+    }
+
+    @Override
+    public void removeBuilding(int id) {
+        Building building= buildingRepository.findById(id).orElseThrow(ElemNotFound::new);
+        buildingRepository.delete(building);
+
     }
 
 

@@ -40,7 +40,7 @@ public class DistributionController {
     }
 
     //------------------Ведение справочника зданий;-------------------------------
-   @Operation(summary = "Получить здание")
+   @Operation(summary = "Получить распределения счет")
    @ApiResponses({
            @ApiResponse(responseCode = "200", description = "OK", content = {
                            @Content(array = @ArraySchema(schema = @Schema(implementation = ScoreDTO.class)))})
@@ -53,7 +53,7 @@ public class DistributionController {
                                                           example = "1") int id) {
       return ResponseEntity.ok(distributionService.getDistributionId(id));
    }
-   @Operation(summary = "Обновить здание")
+   @Operation(summary = "Обновить распределения счет")
    @ApiResponses({
            @ApiResponse(responseCode = "200", description = "OK"),
            @ApiResponse(responseCode = "401", description = "Unauthorized"),
@@ -67,7 +67,7 @@ public class DistributionController {
 
       return ResponseEntity.ok().body(distributionService.updateDistribution(id, distributionDTO));
    }
-   @Operation(summary = "Удалить здание по id")
+   @Operation(summary = "Удалить распределения счет по id")
    @ApiResponses({
            @ApiResponse(responseCode = "204", description = "No Content"),
            @ApiResponse(responseCode = "401", description = "Unauthorized"),
@@ -206,6 +206,48 @@ public class DistributionController {
                               @Parameter(description = "Идентификатор объявления",
                                       example = "1") int id) {
         distributionService.removeContract(id);
+    }
+    //------------------Ведение справочника зданий;-------------------------------
+    @Operation(summary = "Получить здание")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "OK", content = {
+                    @Content(array = @ArraySchema(schema = @Schema(implementation = ScoreDTO.class)))})
+    })
+    @GetMapping("building/{id}")
+    public ResponseEntity<BuildingDTO> getBuildingId(@PathVariable(name = "id")
+                                                             @NotBlank(message = "id не должен быть пустым")
+                                                             @Min(value = 1, message = "Идентификатор должен быть больше 0")
+                                                             @Parameter(description = "Идентификатор объявления",
+                                                                     example = "1") int id) {
+        return ResponseEntity.ok(distributionService.getBuildingId(id));
+    }
+    @Operation(summary = "Обновить здание")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "401", description = "Unauthorized"),
+            @ApiResponse(responseCode = "403", description = "Forbidden"),
+            @ApiResponse(responseCode = "404", description = "Not Found")
+    })
+    @PatchMapping("building/{id}")
+    public ResponseEntity<?> updateBuilding(
+            @PathVariable(name = "id") @NonNull @Parameter(description = "Больше 0, Например 1") Integer id,
+            @RequestBody BuildingDTO buildingDTO) {
+
+        return ResponseEntity.ok().body(distributionService.updateBuilding(id, buildingDTO));
+    }
+    @Operation(summary = "Удалить здание по id")
+    @ApiResponses({
+            @ApiResponse(responseCode = "204", description = "No Content"),
+            @ApiResponse(responseCode = "401", description = "Unauthorized"),
+            @ApiResponse(responseCode = "403", description = "Forbidden")
+    })
+    @DeleteMapping(value = "building/{id}")
+    public void removeBuilding(@PathVariable(name = "id")
+                                   @NotBlank(message = "id не должен быть пустым")
+                                   @Min(value = 1, message = "Идентификатор должен быть больше 0")
+                                   @Parameter(description = "Идентификатор объявления",
+                                           example = "1") int id) {
+        distributionService.removeBuilding(id);
     }
 
     //------------------------- истории результатов распределения расходов.--------------------------------------

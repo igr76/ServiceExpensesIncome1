@@ -10,11 +10,11 @@ import java.util.Date;
 import java.util.List;
 /** Сервис распределения счетов */
 public interface DistributionService {
-    /** Получить здание */
+    /** Получить распределения счет */
     DistributionDTO getDistributionId(int id);
-    /** Обновить здание */
+    /** Обновить распределения счет */
     Object updateDistribution(Integer id, DistributionDTO distributionDTO);
-    /** Удалить здание по id */
+    /** Удалить распределения счет по id */
     void removeDistribution(int id);
     /** Получить основных средств */
     ToolsDTO getToolsId(int id);
@@ -42,4 +42,10 @@ public interface DistributionService {
     List<DistributionDTO> CSVexport(MultipartFile file) throws IOException;
     /** Выгрузка распределения в формате  exel*/
     MultipartFile getXls();
+    /** Получить здание */
+    BuildingDTO getBuildingId(int id);
+    /** Обновить здание */
+    Object updateBuilding(Integer id, BuildingDTO buildingDTO);
+    /** Удалить здание по id */
+    void removeBuilding(int id);
 }
