@@ -47,10 +47,12 @@ public class DistributionServiceTest {
     DistributionHistoryRepository distributionHistoryRepository;
     @Mock
     DistributionHistoryMapper distributionHistoryMapper;
+    BuildingRepository buildingRepository;
+     BuildingMapper buildingMapper;
     @InjectMocks
     DistributionServiceImpl distributionService = new DistributionServiceImpl(distributionRepository,distributionMapper,
             toolsRepository,toolsMapper,serviceRepository,serviceMapper,contractRepository,contractMapper
-            ,distributionHistoryRepository,distributionHistoryMapper);
+            ,distributionHistoryRepository,distributionHistoryMapper,buildingRepository,buildingMapper);
     @Test
     void getTaskTest() {
         Distribution distribution=getDistribution();

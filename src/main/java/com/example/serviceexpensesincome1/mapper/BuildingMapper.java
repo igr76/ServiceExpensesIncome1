@@ -19,5 +19,5 @@ public interface BuildingMapper {
             dateFormat = "dd-MM-yyyy ")
     @Mapping(target = "endOwnership", source = "endOwnership",
             dateFormat = "dd-MM-yyyy ")
-    BuildingDTO toHistory(Building building);
+    BuildingDTO toDTO(Building building);
 }
