@@ -35,61 +35,29 @@ public class UserController {
 
   @Operation(summary = "Установить новый пароль")
   @ApiResponses({
-      @ApiResponse(
-          responseCode = "200",
-          description = "OK",
-          content =
-          @Content(
-              array = @ArraySchema(schema = @Schema(implementation = NewPassword.class)))
-      ),
-      @ApiResponse(
-          responseCode = "401",
-          description = "Unauthorized",
-          content = @Content(schema = @Schema())
-      ),
-      @ApiResponse(
-          responseCode = "403",
-          description = "Forbidden",
-          content = @Content(schema = @Schema())
-      ),
-      @ApiResponse(
-          responseCode = "404",
-          description = "Not Found",
-          content = @Content(schema = @Schema())
-      )
+      @ApiResponse(responseCode = "200", description = "OK", content =
+          @Content(array = @ArraySchema(schema = @Schema(implementation = NewPassword.class)))),
+      @ApiResponse(responseCode = "401", description = "Unauthorized", content = @Content(schema = @Schema())),
+      @ApiResponse(responseCode = "403", description = "Forbidden", content = @Content(schema = @Schema())),
+      @ApiResponse(responseCode = "404", description = "Not Found", content = @Content(schema = @Schema()))
   })
-  @PostMapping(value = "/setPassword")
+  @PostMapping(value = "/setPassword{newPassword},{email}")
   public ResponseEntity<NewPassword> setPassword(
-      @RequestBody
-      @NotBlank(message = "newPassword не должен быть пустым") NewPassword newPassword) {
+          @PathVariable(name = "newPassword")
+      @NotBlank(message = "newPassword не должен быть пустым") NewPassword newPassword,
+          @PathVariable(name = "email")String email) {
     log.info("FormLogInfo.getInfo()");
-    NewPassword newPasswordDTO = userService.setPassword(newPassword);
+    NewPassword newPasswordDTO = userService.setPassword(newPassword,email);
     return ResponseEntity.ok(newPasswordDTO);
   }
 
   @Operation(summary = "Получить пользователя")
   @ApiResponses({
-      @ApiResponse(
-          responseCode = "200",
-          description = "OK",
-          content = @Content(
-              array = @ArraySchema(schema = @Schema(implementation = UserDTO.class)))
-      ),
-      @ApiResponse(
-          responseCode = "401",
-          description = "Unauthorized",
-          content = @Content(schema = @Schema())
-      ),
-      @ApiResponse(
-          responseCode = "403",
-          description = "Forbidden",
-          content = @Content(schema = @Schema())
-      ),
-      @ApiResponse(
-          responseCode = "404",
-          description = "Not Found",
-          content = @Content(schema = @Schema())
-      )
+      @ApiResponse(responseCode = "200", description = "OK", content = @Content(
+              array = @ArraySchema(schema = @Schema(implementation = UserDTO.class)))),
+      @ApiResponse(responseCode = "401", description = "Unauthorized", content = @Content(schema = @Schema())),
+      @ApiResponse(responseCode = "403", description = "Forbidden", content = @Content(schema = @Schema())),
+      @ApiResponse(responseCode = "404", description = "Not Found", content = @Content(schema = @Schema()))
   })
   @GetMapping(value = "/{email}")
   public ResponseEntity<UserDTO> getUser(@PathVariable(name = "id")
@@ -102,26 +70,11 @@ public class UserController {
   @ApiResponses({
       @ApiResponse(
           responseCode = "200", description = "OK", content = @Content(
-              array = @ArraySchema(schema = @Schema(implementation = UserDTO.class)))
-      ),
-      @ApiResponse(responseCode = "204", description = "No Content",
-          content = @Content(schema = @Schema())
-      ),
-      @ApiResponse(
-          responseCode = "401",
-          description = "Unauthorized",
-          content = @Content(schema = @Schema())
-      ),
-      @ApiResponse(
-          responseCode = "403",
-          description = "Forbidden",
-          content = @Content(schema = @Schema())
-      ),
-      @ApiResponse(
-          responseCode = "404",
-          description = "Not Found",
-          content = @Content(schema = @Schema())
-      )
+              array = @ArraySchema(schema = @Schema(implementation = UserDTO.class)))),
+      @ApiResponse(responseCode = "204", description = "No Content", content = @Content(schema = @Schema())),
+      @ApiResponse(responseCode = "401", description = "Unauthorized", content = @Content(schema = @Schema())),
+      @ApiResponse(responseCode = "403", description = "Forbidden", content = @Content(schema = @Schema())),
+      @ApiResponse(responseCode = "404", description = "Not Found", content = @Content(schema = @Schema()))
   })
   @PatchMapping
   public ResponseEntity<UserDTO> updateUser(

@@ -9,10 +9,16 @@ import com.example.serviceexpensesincome1.service.DistributionService;
 import com.opencsv.CSVReader;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.Reader;
 import java.time.LocalDate;
@@ -77,7 +83,7 @@ public class DistributionServiceImpl implements DistributionService {
     @Override
     public ToolsDTO getToolsId(int id) {
         Tools tools = toolsRepository.findById(id).orElseThrow(ElemNotFound::new);
-        return null;//toolsMapper.toDTO(tools);
+        return toolsMapper.toDTO(tools);
     }
 
     @Override
@@ -158,7 +164,7 @@ public class DistributionServiceImpl implements DistributionService {
         }
         return forecastingDTOList;
     }
-    //-------------------------Распределение счетов --------------------
+    //-------------------------Распределение счетов на основе CSV файла--------------------
     @Override
     public List<DistributionDTO> CSVexport(MultipartFile file) throws IOException {
         CSVReader csvReader = new CSVReader((Reader) file);
@@ -168,8 +174,10 @@ public class DistributionServiceImpl implements DistributionService {
         List<Distribution> distributionListFinal = new ArrayList<>();
         List<CSVexport > csVexportList= new ArrayList<>();
         List<Distribution> distributionList = new ArrayList<>();
+        int sumSquaier =0;
         while ((nextRecord = csvReader.readNext()) != null) {
             CSVimport csVimport= new CSVimport();
+            // получение данных из файла
             csVimport.setCompany(nextRecord[0]);
             csVimport.setCategoryScore(Integer.parseInt(nextRecord[1]));
             csVimport.setAccountYear(nextRecord[2]);
@@ -183,12 +191,75 @@ public class DistributionServiceImpl implements DistributionService {
                     LocalDate.parse(csVimport.getAccountYear(),formatter),csVimport.getIdScore(),
                     csVimport.getCategoryScore(),csVimport.getIdContract(),csVimport.getIdService());
             // распределение средств
+            // вычисление общей площади
             for (Distribution e: distributionList) {
-                e.setScore(csVimport.getMoneyNoNDS()/distributionList.size());
+                sumSquaier+=e.getSquare();
+            }  //распределение средств учитывая площадь
+            for (Distribution e: distributionList) {
+                e.setScore(csVimport.getMoneyNoNDS()/(e.getSquare()*100/sumSquaier));
                 distributionListFinal.add(e);
             }
+            sumSquaier = 0;
         }
         return distributionMapper.toDTOlist(distributionListFinal);
+    }
+    //--------------------Выгрузка распределения в файл  exel--------------------------
+    @Override
+    public MultipartFile getXls() {
+        Workbook workbook = new XSSFWorkbook();
+        int i=1;
+        try  {
+            Sheet sheet = workbook.createSheet("Распределение счетов");
+            Row row = sheet.createRow(0);
+            row.createCell(0).setCellValue("Компания");
+            row.createCell(1).setCellValue("счета");
+            row.createCell(2).setCellValue("Позиция счета");
+            row.createCell(3).setCellValue("Номер позиции распределения");
+            row.createCell(4).setCellValue("Дата отражения счета");
+            row.createCell(5).setCellValue("id договора");
+            row.createCell(6).setCellValue("id услуги");
+            row.createCell(7).setCellValue("Класс услуги");
+            row.createCell(8).setCellValue("Здание");
+            row.createCell(9).setCellValue("Площадь");
+            row.createCell(10).setCellValue("ID основного средства");
+            row.createCell(11).setCellValue("Класс основного средства");
+            row.createCell(12).setCellValue("Признак Использования");
+            row.createCell(13).setCellValue("Распределенная сумма");
+            row.createCell(14).setCellValue("Счёт главной книги");
+            List<Distribution> distributionList= distributionRepository.findAll();
+            for (Distribution e: distributionList) {
+                row = sheet.createRow(i);
+                row.createCell(0).setCellValue(e.getCompany());
+                row.createCell(1).setCellValue(e.getIdScore());
+                row.createCell(2).setCellValue(e.getCategoryScore());
+                row.createCell(3).setCellValue(String.valueOf(e.getAccountYear()));
+                row.createCell(4).setCellValue(e.getNumberPosition());
+                row.createCell(5).setCellValue(String.valueOf(e.getDateAccount()));
+                row.createCell(6).setCellValue(e.getIdContract());
+                row.createCell(7).setCellValue(e.getIdService());
+                row.createCell(8).setCellValue(e.getClassService());
+                row.createCell(9).setCellValue(e.getBuilding());
+                row.createCell(10).setCellValue(e.getSquare());
+                row.createCell(11).setCellValue(e.getIdO());
+                row.createCell(12).setCellValue(e.getType().ordinal());
+                row.createCell(13).setCellValue(e.isSignExpenses());
+                row.createCell(14).setCellValue(e.getScore());
+                i++;
+            }
+            // активировать при загрузке в файл
+//            try (FileOutputStream out = new FileOutputStream("Example.xlsx")) {
+//                workbook.write(out);
+//            }  // Работа с файлом завершена, он закрыт
+//            catch (FileNotFoundException e) {
+//                throw new RuntimeException(e);
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e);
+        }
+        return (MultipartFile) workbook;
     }
 
 

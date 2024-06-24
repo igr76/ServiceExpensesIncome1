@@ -17,9 +17,7 @@ import java.util.Date;
 @Table(name = "history")
 @Entity
 public class DistributionHistory {
-    /**
-     * id счетов
-     */
+    /** id счетов*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable=false, updatable=false)

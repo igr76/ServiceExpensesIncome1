@@ -19,5 +19,10 @@ public interface ScoreMapper {
     @Mapping(target = "dateAccount", source = "dateAccount",
             dateFormat = "dd-MM-yyyy ")
     ScoreDTO toDTO(Score score);
+
+    @Mapping(target = "accountYear", source = "accountYear",
+            dateFormat = "dd-MM-yyyy ")
+    @Mapping(target = "dateAccount", source = "dateAccount",
+            dateFormat = "dd-MM-yyyy ")
     List<ScoreDTO> toDTOlist(List<Score> list);
 }

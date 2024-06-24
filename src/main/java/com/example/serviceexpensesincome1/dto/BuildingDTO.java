@@ -22,10 +22,8 @@ public class BuildingDTO {
     String endOwnership;
     /** Конец действия измерения */
     int endMeasurement;
-
     /** Начало действия измерения */
     int beginningMeasurement;
-
     /** Единица измерения площади */
     Unit unitArea;
 }

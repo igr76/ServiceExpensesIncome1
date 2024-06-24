@@ -22,41 +22,21 @@ import java.util.Objects;
 @Entity
 public class UserEntity {
 
-  /**
-   * id пользователя
-   */
+  /** id пользователя*/
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false)
   Integer id;
-
-  /**
-   * Имя пользователя
-   */
+  /**Имя пользователя*/
     String firstName;
-
-  /**
-   * Фамилия пользователя
-   */
+  /** Фамилия пользователя*/
   String lastName;
-
-  /**
-   * почта пользователя
-   */
+  /**почта пользователя*/
   String email;
-
-  /**
-   * пароль пользователя
-   */
+  /** пароль пользователя*/
   String password;
-
-  /**
-   * телефон пользователя
-   */
+  /** телефон пользователя*/
   String phone;
-
-
-
 
   @Override
   public boolean equals(Object o) {

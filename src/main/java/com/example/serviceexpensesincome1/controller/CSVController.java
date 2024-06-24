@@ -20,7 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List;
 
-/** Контроллер распределения счетов по загруженному файлу*/
+/** Контроллер распределения счетов по загруженному файлу csv*/
 @NoArgsConstructor
 @RequestMapping("/csv")
 @Slf4j
