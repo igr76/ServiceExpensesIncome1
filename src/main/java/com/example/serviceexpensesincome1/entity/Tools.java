@@ -38,10 +38,8 @@ public class Tools {
     LocalDate beginningOfOperation;
     /** Дата выбытия*/
     LocalDate endOfOperation;
-
     /** Площадь */
     int square;
-
     /** Единица измерения площади */
     Unit unitOfArea;
 }

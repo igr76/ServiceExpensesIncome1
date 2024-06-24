@@ -33,10 +33,8 @@ public class ToolsDTO {
     String beginningOfOperation;
     /** Дата выбытия*/
     String endOfOperation;
-
     /** Площадь */
     int square;
-
     /** Единица измерения площади */
     Unit unitOfArea;
 }

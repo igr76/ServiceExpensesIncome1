@@ -24,7 +24,7 @@ public interface UserService {
   /**
    * установить новый пароль пользователя
    */
-  NewPassword setPassword(NewPassword newPassword);
+  NewPassword setPassword(NewPassword newPassword,String email);
 
 
 }

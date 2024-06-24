@@ -27,5 +27,9 @@ public interface DistributionMapper {
             dateFormat = "dd-MM-yyyy ")
     DistributionDTO toDTO(Distribution distribution);
 
+    @Mapping(target = "accountYear", source = "accountYear",
+            dateFormat = "dd-MM-yyyy ")
+    @Mapping(target = "dateAccount", source = "dateAccount",
+            dateFormat = "dd-MM-yyyy ")
     List<DistributionDTO> toDTOlist(List<Distribution> distributionListFinal);
 }

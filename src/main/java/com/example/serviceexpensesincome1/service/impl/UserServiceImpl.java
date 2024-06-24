@@ -31,9 +31,7 @@ public class UserServiceImpl implements UserService {
     this.userMapper = userMapper;
   }
 
-  /**
-   * Получить данные пользователя
-   */
+  /** Получить данные пользователя */
   @Override
   public UserDTO getUser(String email) {
     log.info("Получить данные пользователя");
@@ -41,12 +39,10 @@ public class UserServiceImpl implements UserService {
     return userMapper.toDTO(userEntity);
   }
 
-  /**
-   * Обновить данные пользователя
-   */
+  /** Обновить данные пользователя */
   @Override
   public UserDTO updateUser(UserDTO newUserDto) {
-    log.info("FormLogInfo.getInfo()");
+    log.info("Обновить данные пользователя");
 
     String nameEmail = "";//authentication.getName();
     UserEntity userEntity = findEntityByEmail(nameEmail);
@@ -58,31 +54,30 @@ public class UserServiceImpl implements UserService {
     oldUser.setFirstName(newUserDto.getFirstName());
     oldUser.setLastName(newUserDto.getLastName());
     oldUser.setPhone(newUserDto.getPhone());
-
-
     userRepository.save(oldUser);
 
     return userMapper.toDTO(oldUser);
   }
 
-  /**
-   * Установить пароль пользователя
-   */
+  /** Установить пароль пользователя */
   @Override
-  public NewPassword setPassword(NewPassword newPassword) {
-    log.info("FormLogInfo.getInfo()");
-    return null;
+  public NewPassword setPassword(NewPassword newPassword,String email) {
+    log.info("Установить пароль пользователя");
+    UserEntity user=findEntityByEmail(email);
+    if (user.getPassword() ==newPassword.getCurrentPassword()) {
+    user.setPassword(newPassword.getNewPassword());
+    userRepository.save(user);
+    } else {new ElemNotFound("старый пароль не совпадает");}
+    return newPassword;
   }
 
   /**
    * найти пользователя по email - логину
-   *
    * @param email email - логину пользователя
    * @return пользователь
    */
   private UserEntity findEntityByEmail(String email) {
-    log.info("FormLogInfo.getInfo()");
-    return userRepository.findByEmail(email);//.get();
+    return userRepository.findByEmail(email);
   }
 
 
