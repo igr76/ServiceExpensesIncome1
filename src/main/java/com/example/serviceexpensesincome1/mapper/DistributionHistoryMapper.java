@@ -13,7 +13,7 @@ public interface DistributionHistoryMapper {
             dateFormat = "dd-MM-yyyy ")
     @Mapping(target = "dateAccount", source = "dateAccount",
             dateFormat = "dd-MM-yyyy ")
-    @Mapping(target = "DateRegistration", source = "DateRegistration",
+    @Mapping(target = "dateRegistration", source = "dateRegistration",
             dateFormat = "dd-MM-yyyy ")
     DistributionHistoryDTO  toDTO(DistributionHistory distributionHistory);
     @Mapping(target = "accountYear", source = "accountYear",

@@ -18,7 +18,7 @@ public interface DistributionMapper {
             dateFormat = "dd-MM-yyyy ")
     @Mapping(target = "id", ignore = true)
     Distribution toEntity(DistributionDTO distributionDTO);
-    @Mapping(target = "DateRegistration", ignore = true)
+    @Mapping(target = "dateRegistration", ignore = true)
    DistributionHistory toHistory(Distribution distribution);
 
     @Mapping(target = "accountYear", source = "accountYear",
