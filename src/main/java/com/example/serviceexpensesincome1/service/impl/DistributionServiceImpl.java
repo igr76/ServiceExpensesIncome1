@@ -286,6 +286,10 @@ public class DistributionServiceImpl implements DistributionService {
         buildingRepository.delete(building);
 
     }
+    private DistributionDTO getDistributionDTO() {
+        return new DistributionDTO("mts",1,1,"2021-10-10",1,
+                "2021-10-10",1,1,"111","rty",2,1, Type.TYPE,true,1,1);
+    }
 
 
 }

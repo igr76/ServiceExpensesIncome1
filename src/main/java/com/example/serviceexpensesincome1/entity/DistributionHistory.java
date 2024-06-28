@@ -56,5 +56,5 @@ public class DistributionHistory {
     int Score;
     /** Дата регистрации */
     @Column(name = "date_registration")
-    LocalDate DateRegistration;
+    LocalDate dateRegistration;
 }

@@ -28,7 +28,7 @@ import java.util.List;
 
 /** Контроллер распределения счетов */
 @NoArgsConstructor
-@RequestMapping("/distribution")
+@RequestMapping("/distribution/")
 @Slf4j
 @Tag(name = "управление данными")
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -47,10 +47,10 @@ public class DistributionController {
    })
    @GetMapping("{id}")
    public ResponseEntity<DistributionDTO> getDistributionId(@PathVariable(name = "id")
-                                                  @NotBlank(message = "id не должен быть пустым")
                                                   @Min(value = 1, message = "Идентификатор должен быть больше 0")
                                                   @Parameter(description = "Идентификатор объявления",
-                                                          example = "1") int id) {
+                                                          example = "1")
+                                                          int id) {
       return ResponseEntity.ok(distributionService.getDistributionId(id));
    }
    @Operation(summary = "Обновить распределения счет")
@@ -75,7 +75,6 @@ public class DistributionController {
    })
    @DeleteMapping(value = "{id}")
    public void removeDistribution(@PathVariable(name = "id")
-                         @NotBlank(message = "id не должен быть пустым")
                          @Min(value = 1, message = "Идентификатор должен быть больше 0")
                          @Parameter(description = "Идентификатор объявления",
                                  example = "1") int id) {
@@ -89,7 +88,6 @@ public class DistributionController {
    })
    @GetMapping("tools/{id}")
    public ResponseEntity<ToolsDTO> getTools(@PathVariable(name = "id")
-                                                            @NotBlank(message = "id не должен быть пустым")
                                                             @Min(value = 1, message = "Идентификатор должен быть больше 0")
                                                             @Parameter(description = "Идентификатор объявления",
                                                                     example = "1") int id) {
@@ -117,7 +115,6 @@ public class DistributionController {
     })
     @DeleteMapping(value = "tools/{id}")
     public void removeTools(@PathVariable(name = "id")
-                                   @NotBlank(message = "id не должен быть пустым")
                                    @Min(value = 1, message = "Идентификатор должен быть больше 0")
                                    @Parameter(description = "Идентификатор объявления",
                                            example = "1") int id) {
@@ -131,7 +128,6 @@ public class DistributionController {
     })
     @GetMapping("service/{id}")
     public ResponseEntity<ServiceDTO> getService(@PathVariable(name = "id")
-                                             @NotBlank(message = "id не должен быть пустым")
                                              @Min(value = 1, message = "Идентификатор должен быть больше 0")
                                              @Parameter(description = "Идентификатор объявления",
                                                      example = "1") int id) {
