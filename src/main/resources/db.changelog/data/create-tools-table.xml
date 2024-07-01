@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="create-tools-table" author="igor">
+
+        <preConditions>
+            <not>
+                <tableExists tableName="tools"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="tools">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="type" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sign_expenses" type="BOOLEAN">
+            </column>
+            <column name="sign_rent" type="BOOLEAN">
+            </column>
+            <column name="id_building" type="INT" >
+                <constraints  nullable="false"/>
+            </column>
+            <column name="beginning_of_ownership_union" type="DATE">
+            </column>
+            <column name="end_of_ownership_union" type="DATE">
+            </column>
+            <column name="beginning_of_operation" type="DATE">
+            </column>
+            <column name="end_of_operation" type="DATE">
+            </column>
+            <column name="square" type="INT" >
+                <constraints  nullable="false"/>
+            </column>
+            <column name="unit_of_area" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+
+
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>

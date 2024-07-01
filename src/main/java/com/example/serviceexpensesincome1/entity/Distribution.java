@@ -1,23 +1,37 @@
 package com.example.serviceexpensesincome1.entity;
 
 import com.example.serviceexpensesincome1.dto.Type;
+import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 /** Cущность распределения счетов */
-
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@Entity
 public class Distribution {
+    /** ID здания */
+    @jakarta.persistence.Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int Id;
     /** Компания */
     String company;
     /** Номер счета */
     int idScore;
     /** Позиция счета */
-    int idBuilding;
+    int categoryScore;
     /** Год счета */
-    Date accountYear;
+    LocalDate accountYear;
     /** Номер позиции распределения */
     int numberPosition;
     /** Дата отражения счета в учётной системе */
-    Date dateAccount;
+    LocalDate dateAccount;
     /** id договора */
     int idContract;
     /** id услуги */
@@ -25,11 +39,11 @@ public class Distribution {
     /** Класс услуги*/
     String classService;
     /** Здание */
-    String Building;
+    String building;
     /** Площадь */
     int square;
     /** ID основного средства */
-    int Id;
+    int idO;
     /** Класс основного средства */
     Type type;
     /** Признак Использования */
@@ -37,5 +51,5 @@ public class Distribution {
     /** Распределенная сумма */
     int sizeDistribution;
     /** Счёт главной книги */
-    int Score;
+    int score;
 }

@@ -1,8 +1,27 @@
 package com.example.serviceexpensesincome1.entity;
 
+import com.example.serviceexpensesincome1.dto.Type;
+import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+
+import java.time.LocalDate;
 import java.util.Date;
 /** Cущность история  распределения счетов */
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@Table(name = "history")
+@Entity
 public class DistributionHistory {
+    /** id счетов*/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(insertable=false, updatable=false)
+    int id;
     /** Компания */
     String company;
     /** Номер счета */
@@ -10,11 +29,11 @@ public class DistributionHistory {
     /** Позиция счета */
     int idBuilding;
     /** Год счета */
-    Date accountYear;
+    LocalDate accountYear;
     /** Номер позиции распределения */
     int numberPosition;
     /** Дата отражения счета в учётной системе */
-    Date dateAccount;
+    LocalDate dateAccount;
     /** id договора */
     int idContract;
     /** id услуги */
@@ -22,13 +41,13 @@ public class DistributionHistory {
     /** Класс услуги*/
     String classService;
     /** Здание */
-    String Building;
+    String building;
     /** Площадь */
     int square;
     /** ID основного средства */
-    int Id;
+    int IdO;
     /** Класс основного средства */
-    com.example.serviceexpensesincome.dto.Type type;
+    Type type;
     /** Признак Использования */
     boolean signExpenses;
     /** Распределенная сумма */
@@ -36,5 +55,6 @@ public class DistributionHistory {
     /** Счёт главной книги */
     int Score;
     /** Дата регистрации */
-    Date DateRegistration;
+    @Column(name = "date_registration")
+    LocalDate dateRegistration;
 }

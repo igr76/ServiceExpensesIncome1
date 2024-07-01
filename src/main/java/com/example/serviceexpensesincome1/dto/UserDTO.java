@@ -15,31 +15,17 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserDTO {
 
-  /**
-   * почта пользователя
-   */
+  /** почта пользователя*/
   String email;
 
-  /**
-   * Имя пользователя
-   */
+  /** Имя пользователя*/
   String firstName;
-  /**
-   * id пользователя
-   */
+  /** id пользователя*/
   Integer id;
-  /**
-   * Фамилия пользователя
-   */
+  /** Фамилия пользователя*/
   String lastName;
-  /**
-   * телефон пользователя
-   */
+  /** телефон пользователя*/
   String phone;
-  /**
-   * дата регистрации пользователя
-   */
-  String regDate;
 
 
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <include file="data/create-users-table.xml" relativeToChangelogFile="true"/>
+    <include file="data/create-building-table.xml" relativeToChangelogFile="true"/>
+    <include file="data/create-contract-table.xml" relativeToChangelogFile="true"/>
+    <include file="data/create-distribution-table.xml" relativeToChangelogFile="true"/>
+    <include file="data/create-score-table.xml" relativeToChangelogFile="true"/>
+    <include file="data/create-service-table.xml" relativeToChangelogFile="true"/>
+    <include file="data/create-tools-table.xml" relativeToChangelogFile="true"/>
+    <include file="data/create-union-table.xml" relativeToChangelogFile="true"/>
+
+
+</databaseChangeLog>

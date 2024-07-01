@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="create-building-table" author="igor">
+
+        <preConditions>
+            <not>
+                <tableExists tableName="building"/>
+            </not>
+        </preConditions>
+        <createTable tableName="building">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="beginning_ownership" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="end_ownership" type="DATE">
+                <constraints  nullable="false"/>
+            </column>
+            <column name="end_measurement" type="INT">
+                <constraints  nullable="false"/>
+            </column>
+            <column name="beginning_measurement" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="unit_area" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>

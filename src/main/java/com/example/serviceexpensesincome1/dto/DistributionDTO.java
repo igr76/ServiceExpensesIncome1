@@ -3,6 +3,7 @@ package com.example.serviceexpensesincome1.dto;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 /** DTO распределения счетов */
 @Getter
@@ -13,17 +14,18 @@ import java.util.Date;
 @EqualsAndHashCode
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class DistributionDTO {
+    /** Компания */
     String company;
     /** Номер счета */
     int idScore;
     /** Позиция счета */
-    int idBuilding;
+    int categoryScore;
     /** Год счета */
-    Date accountYear;
+    String accountYear;
     /** Номер позиции распределения */
     int numberPosition;
     /** Дата отражения счета в учётной системе */
-    Date dateAccount;
+    String dateAccount;
     /** id договора */
     int idContract;
     /** ID услуги */
@@ -31,7 +33,7 @@ public class DistributionDTO {
     /** Класс услуги*/
     String classService;
     /** Здание */
-    String Building;
+    String building;
     /** Площадь */
     int square;
     /** ID основного средства */
@@ -43,5 +45,5 @@ public class DistributionDTO {
     /** Распределенная сумма */
     int sizeDistribution;
     /** Счёт главной книги */
-    int Score;
+    int score;
 }

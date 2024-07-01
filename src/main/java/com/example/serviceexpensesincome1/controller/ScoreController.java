@@ -9,15 +9,23 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 /** Контроллер  счетов */
+@NoArgsConstructor
+@RequestMapping("/score")
+@Slf4j
+@Tag(name = "ведение счетов")
+@RestController
 public class ScoreController {
     private ScoreService scoreService;
     @Operation(summary = "Получить все cчета")
@@ -37,48 +45,24 @@ public class ScoreController {
     }
     @Operation(summary = "Обновить счет")
     @ApiResponses({
-            @ApiResponse(
-                    responseCode = "200",
-                    description = "OK",
-                    content = {
-                            @Content(
-                                    schema = @Schema(ref = "#/components/schemas/AdsDTO"))
-                    }
+            @ApiResponse(responseCode = "200", description = "OK", content = {
+                            @Content(schema = @Schema(ref = "#/components/schemas/AdsDTO"))}
             ),
-            @ApiResponse(
-                    responseCode = "401",
-                    description = "Unauthorized"
-            ),
-            @ApiResponse(
-                    responseCode = "403",
-                    description = "Forbidden"
-            ),
-            @ApiResponse(
-                    responseCode = "404",
-                    description = "Not Found"
-            )
+            @ApiResponse(responseCode = "401", description = "Unauthorized"),
+            @ApiResponse(responseCode = "403", description = "Forbidden"),
+            @ApiResponse(responseCode = "404", description = "Not Found")
     })
     @PatchMapping("{id}")
     public ResponseEntity<?> updateScore(
             @PathVariable(name = "id") @NonNull @Parameter(description = "Больше 0, Например 1") Integer id,
             @RequestBody ScoreDTO scoreDTO) {
-
         return ResponseEntity.ok().body(scoreService.updateScore(id, scoreDTO));
     }
     @Operation(summary = "Удалить счет по id")
     @ApiResponses({
-            @ApiResponse(
-                    responseCode = "204",
-                    description = "No Content"
-            ),
-            @ApiResponse(
-                    responseCode = "401",
-                    description = "Unauthorized"
-            ),
-            @ApiResponse(
-                    responseCode = "403",
-                    description = "Forbidden"
-            )
+            @ApiResponse(responseCode = "204", description = "No Content"),
+            @ApiResponse(responseCode = "401", description = "Unauthorized"),
+            @ApiResponse(responseCode = "403", description = "Forbidden")
     })
     @DeleteMapping(value = "/{id}")
     public void removeScore(@PathVariable(name = "id")

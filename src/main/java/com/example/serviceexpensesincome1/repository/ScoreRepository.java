@@ -1,7 +1,12 @@
 package com.example.serviceexpensesincome1.repository;
 
-import java.util.List;
+import com.example.serviceexpensesincome1.dto.ScoreDTO;
+import com.example.serviceexpensesincome1.entity.Score;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface ScoreRepository {
-    List<com.example.serviceexpensesincome.dto.ScoreDTO> findAll();
+import java.util.List;
+@Repository
+public interface ScoreRepository extends JpaRepository<Score, Integer> {
+    List<Score> findAll();
 }

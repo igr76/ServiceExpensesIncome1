@@ -3,6 +3,7 @@ package com.example.serviceexpensesincome1.dto;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 /** ВЕЩ основые средства */
 @Getter
@@ -25,17 +26,15 @@ public class ToolsDTO {
     /** ID здания */
     int IdBuilding;
     /** Дата начала действия связи с зданием*/
-    Date beginningOfOwnershipUnion;
+    String beginningOfOwnershipUnion;
     /** Дата окончания действия связи с зданием */
-    Date endOfOwnershipUnion;
+    String endOfOwnershipUnion;
     /** Дата ввода в эксплуатацию */
-    Date beginningOfOperation;
+    String beginningOfOperation;
     /** Дата выбытия*/
-    Date endOfOperation;
-
+    String endOfOperation;
     /** Площадь */
     int square;
-
     /** Единица измерения площади */
-    Unit UnitOfArea;
+    Unit unitOfArea;
 }

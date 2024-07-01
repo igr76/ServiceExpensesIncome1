@@ -13,7 +13,7 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ServiceDTO {
     /** Номер услуги */
-    int idService;
+    int id;
     /** Категория услуги */
     String nameService;
 }
