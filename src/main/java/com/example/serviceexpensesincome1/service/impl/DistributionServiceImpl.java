@@ -144,8 +144,7 @@ public class DistributionServiceImpl implements DistributionService {
     //------------------------- истории результатов распределения расходов за период.------
     @Override
     public List<DistributionHistoryDTO> getHistory(LocalDate year1, LocalDate year2) {
-        List<DistributionHistory>  distributionHistoryList=distributionHistoryRepository.findBetweenDate(year1,year2);
-        return null;
+        return (List<DistributionHistoryDTO>) distributionHistoryMapper.toDTOList(distributionHistoryRepository.findBetweenDate(year1,year2));
     }
     //-------------------------Получить прогноз за период--------------------
     @Override
@@ -154,6 +153,7 @@ public class DistributionServiceImpl implements DistributionService {
         int countMonth=period.getMonths();
         List<ForecastingDTO> forecastingDTOList = null;
         List<Forecasting> forecastingList=distributionRepository.findForecasting(date1,date2);
+
         forecastingList.stream()
                 .forEach(e-> {e.setSumYear(e.getSumYear()/countMonth);});
 
